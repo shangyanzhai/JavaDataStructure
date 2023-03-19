@@ -92,6 +92,8 @@ public class MyArrayList implements MyList {
 
         //3.让顺序表的引用指向新数组
         this.array = newarray;
+
+        //array = Arrays.copyOf(array,array.length * 2)
     }
 
 
