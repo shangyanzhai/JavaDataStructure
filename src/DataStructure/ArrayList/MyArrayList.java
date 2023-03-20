@@ -1,4 +1,4 @@
-package test.DataStructure.ArrayList;
+package DataStructure.ArrayList;
 
 /**
  * List(线性表)的特征：
@@ -27,7 +27,7 @@ package test.DataStructure.ArrayList;
  *                              头插，头删，【插入删除的最坏情况】 时间复杂度是O(n)，需要将已有元素进行搬移
  *                              中间位置插入，删除，时间复杂度是O(n)
  */
-public class MyArrayList implements MyList {
+public class MyArrayList implements test.DataStructure.ArrayList.MyList {
     //定义属性
     private Long[] array; //array.length 也就是我们的容量(capacity)
     private int size;     //保存元素的个数
