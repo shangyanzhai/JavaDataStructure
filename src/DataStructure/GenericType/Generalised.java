@@ -1,4 +1,4 @@
-package test.DataStructure;
+package DataStructure.GenericType;
 
 import java.util.ArrayList;
 import java.util.Collection;

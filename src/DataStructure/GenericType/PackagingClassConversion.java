@@ -1,4 +1,4 @@
-package test.DataStructure;
+package DataStructure.GenericType;
 
 /**
  * 包装类转化&比较

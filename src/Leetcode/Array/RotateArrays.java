@@ -1,4 +1,4 @@
-package test.Leetcode;
+package Leetcode.Array;
 import java.util.Arrays;
 
 /**189  轮换数组

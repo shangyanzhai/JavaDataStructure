@@ -1,4 +1,4 @@
-package test.Leetcode;
+package Leetcode.DataStructrue.BinaryTree;
 
 /** 100   相同的树
  *

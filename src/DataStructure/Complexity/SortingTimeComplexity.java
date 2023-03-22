@@ -1,4 +1,4 @@
-package test.DataStructure;
+package DataStructure.Complexity;
 
 import java.util.Arrays;
 

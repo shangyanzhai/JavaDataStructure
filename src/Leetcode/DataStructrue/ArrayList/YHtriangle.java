@@ -1,4 +1,4 @@
-package Leetcode;
+package Leetcode.DataStructrue.ArrayList;
 
 /**
  * 118 杨辉三角

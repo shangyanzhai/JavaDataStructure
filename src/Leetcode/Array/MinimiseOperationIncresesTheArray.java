@@ -1,4 +1,4 @@
-package test.Leetcode;
+package Leetcode.Array;
 
 public class MinimiseOperationIncresesTheArray {
     /**1827 最少操作使数组递增
