@@ -1,4 +1,4 @@
-package test.AbstractClass;
+package ObjectOriented_For_Java.AbstractClass;
 
 //被abstract修饰的类就是抽象类
 //抽象类是普通类的超集，普通类能定义的则抽象类都可以定义，则子类实例化依然满足继承的原则，先调用父类的构造方法，再调用子类的构造方法

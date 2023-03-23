@@ -1,6 +1,4 @@
-package Inherit;
-
-import Inherit.Dog;
+package ObjectOriented_For_Java.Inherit;
 
 import java.util.Scanner;
 

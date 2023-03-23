@@ -1,14 +1,10 @@
 package String;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
-import Port.Student;
-import org.w3c.dom.ls.LSOutput;
+import ObjectOriented_For_Java.Port.Student;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Locale;
 
 /**
  * 字符串修改方法

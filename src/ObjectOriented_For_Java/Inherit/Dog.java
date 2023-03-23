@@ -1,4 +1,4 @@
-package Inherit;
+package ObjectOriented_For_Java.Inherit;
 
 /**
  * 类的定义
