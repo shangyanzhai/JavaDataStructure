@@ -1,6 +1,6 @@
 package Inherit;
 
-import test.Inherit.Dog;
+import Inherit.Dog;
 
 import java.util.Scanner;
 
