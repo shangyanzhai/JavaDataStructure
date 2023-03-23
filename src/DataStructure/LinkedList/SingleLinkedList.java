@@ -74,14 +74,20 @@ public class SingleLinkedList {
             return false;
         }
 
-        while(node.next != null){
+//        while(node.next != null){
+//            if(node.val == key){
+//                return true;
+//            }
+//            node = node.next;
+//        }
+//        if(node.val == key){
+//            return true;
+//        }
+
+        while(node != null){
             if(node.val == key){
                 return true;
             }
-            node = node.next;
-        }
-        if(node.val == key){
-            return true;
         }
         return false;
     }
@@ -98,16 +104,64 @@ public class SingleLinkedList {
                 return;
             }
         }
-        ListNode list = node;
-        ListNode list1 = node.next;
-        while(list1.next != null){
-
+        ListNode list = null;
+        ListNode list1 = node;
+        while(list1 != null){
+            if(list1.val == key){
+                if(list1.next == null ){//此时说明list1为尾结点
+                    list.next = null;
+                    size--;
+                    return;
+                }
+                if(list == null ){//此时说明list1为头节点
+                    list1 = list1.next;
+                    size--;
+                    return;
+                }
+                    list = list1.next;
+                    list1.next = null;
+                    size--;
+                    return;
+            }
+            //此时说明并不相等，则继续循环
+            list = list1;
+            list1 = list1.next;
         }
     }
     //删除所有值为key的节点
     public void removeAllKey(int key) {
-
-
+        if(size == 0){
+            return ;
+        }
+        if(size == 1){
+            if(node.val == key){
+                node = null;
+                size--;
+            }else{
+                return;
+            }
+        }
+        ListNode list = null;
+        ListNode list1 = node;
+        while(list1 != null){
+            if(list1.val == key){
+                if(list1.next == null ){//此时说明list1为尾结点
+                    list.next = null;
+                    size--;
+                    return;
+                }
+                if(list == null ){//此时说明list1为头节点
+                    list1 = list1.next;
+                    size--;
+                }
+                list = list1.next;
+                list1.next = null;
+                size--;
+            }
+            //此时说明并不相等，则继续循环
+            list = list1;
+            list1 = list1.next;
+        }
     }
     //得到单链表的长度
     public int size() {
