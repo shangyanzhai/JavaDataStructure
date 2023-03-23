@@ -5,6 +5,9 @@ public class ListNode {
     ListNode prev;
     ListNode next;
 
+    ListNode(){
+
+    }
     ListNode(Long val) {
         this.val = val;
     }
