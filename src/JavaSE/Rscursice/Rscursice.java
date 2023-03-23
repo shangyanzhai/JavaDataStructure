@@ -1,4 +1,4 @@
-package Rscursice;
+package JavaSE.Rscursice;
 
 /**
  * 递归练习

@@ -1,6 +1,4 @@
-package SecretCode;
-
-import com.sun.jmx.snmp.SnmpUnknownModelException;
+package TestQuestions;
 
 import java.util.Objects;
 import java.util.Scanner;

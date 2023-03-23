@@ -1,6 +1,6 @@
-package ObjectOriented_For_Java.Port;
+package JavaSE.ObjectOriented_For_Java.Port;
 
-import ObjectOriented_For_Java.AbstractClass.*;
+import JavaSE.ObjectOriented_For_Java.AbstractClass.*;
 
 /**
  * 类Mouse 继承 接口USB

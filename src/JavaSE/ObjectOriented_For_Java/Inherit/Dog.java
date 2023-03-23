@@ -1,4 +1,4 @@
-package ObjectOriented_For_Java.Inherit;
+package JavaSE.ObjectOriented_For_Java.Inherit;
 
 /**
  * 类的定义
@@ -70,7 +70,7 @@ package ObjectOriented_For_Java.Inherit;
 //        System.out.println(dog1.Name);
 //        System.out.println(dog1.living);
         //
-//        static String eyes = "黄";//类中无法定义静态变量
+//        static JavaSE.String eyes = "黄";//类中无法定义静态变量
         //
 //        System.out.println(living);
 //        System.out.println(Color);//错误

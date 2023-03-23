@@ -1,4 +1,4 @@
-package Unusual;
+package JavaSE.Unusual;
 
 import java.util.Scanner;
 
@@ -62,7 +62,7 @@ public class Unuasual {
             //若某代码中有可能产生多个异常时，推荐还是使用多个catch代码块来捕获不同的异常类型，也有的程序员使用父类来接受所有的异常
             try{
                 System.out.println(10/0);
-//            String str = null;
+//            JavaSE.String str = null;
 //            System.out.println(str.length());//空指针异常（NPE异常）
 //            int[] arr = {'a','b','c'};
 //            System.out.println(arr[3]);//越界异常

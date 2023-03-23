@@ -1,8 +1,8 @@
-package String;
+package JavaSE.String;
 
 import java.util.Arrays;
 
-import ObjectOriented_For_Java.Port.Student;
+import JavaSE.ObjectOriented_For_Java.Port.Student;
 
 import java.nio.charset.StandardCharsets;
 
@@ -37,14 +37,14 @@ public class Strings {
 
         //题目
         //若字符串的引用为null
-        //String str = null;
+        //JavaSE.String str = null;
         //boolean isEmpty = str.isEmpty();
         //a.false b. true c.编译出错
         //选c，只要是通过null值'.'操作任何成员方法，一定都是空指针异常
         /**
          * 判断字符串是否为空的方法
          */
-//        String str5 = null;
+//        JavaSE.String str5 = null;
 //        boolean ret = false;
 //        if( str5 == null|| str5.isEmpty() ){//必须如此写，如果isEmpty()在前面，则有可能字符串为空，发生空指针异常
 //            ret = true;
@@ -156,11 +156,11 @@ public class Strings {
          * 5.字符串的替换
          */
         strr1 = "hello world 123 世界";
-        //替换所有的指定内容 Sting replaceAll(String regex/*想要替换的子串内容*/,String replacement/*替换后的内容*/)
+        //替换所有的指定内容 Sting replaceAll(JavaSE.String regex/*想要替换的子串内容*/,JavaSE.String replacement/*替换后的内容*/)
         System.out.println(strr1.replaceAll("123","你好"));
         System.out.println(strr1);//字符串不可变
         System.out.println(strr1.replaceAll("l","a"));
-        //替换首个内容 Sting replaceFirst(String regex/*想要替换的子串内容*/,String replacement/*替换后的内容*/)
+        //替换首个内容 Sting replaceFirst(JavaSE.String regex/*想要替换的子串内容*/,JavaSE.String replacement/*替换后的内容*/)
         System.out.println(strr1);//字符串不可变
         System.out.println(strr1.replaceFirst("l","a"));
 
@@ -168,11 +168,11 @@ public class Strings {
          * 6.字符串拆分，讲一个字符串按照指定的格式拆分成字符串数组
          */
         strr1 = "hello world 123 世界";
-        //将字符串以指定的格式全部拆分，能拆多少是多少，长度为拆完个数 String[] split(String regex)
+        //将字符串以指定的格式全部拆分，能拆多少是多少，长度为拆完个数 JavaSE.String[] split(JavaSE.String regex)
         String[] arr4 = strr1.split(" ");
         System.out.println(Arrays.toString(arr4));
         System.out.println(arr4.length);
-        //将字符串以指定的格式，拆分为limit组，长度为limit String[] split(String regex,int limit)
+        //将字符串以指定的格式，拆分为limit组，长度为limit JavaSE.String[] split(JavaSE.String regex,int limit)
         String[] arr5 = strr1.split(" ",2);
         System.out.println(Arrays.toString(arr5));
         System.out.println(arr5.length);
@@ -194,10 +194,10 @@ public class Strings {
          * 7.字符串的截取方法
          */
         strr1 = "hello world 123 世界";
-        //从指定索引截取到结尾,从指定索引位置开始截取字符出啊结尾，保留开始字符 String substring(int beginlndex)
+        //从指定索引截取到结尾,从指定索引位置开始截取字符出啊结尾，保留开始字符 JavaSE.String substring(int beginlndex)
         System.out.println(strr1);
         System.out.println(strr1.substring(3));
-        //从指定索引截取到结尾，牵扯到区间的，都是左闭右开，不保留结束字符 String substring(int beginlndex，int endlndex)
+        //从指定索引截取到结尾，牵扯到区间的，都是左闭右开，不保留结束字符 JavaSE.String substring(int beginlndex，int endlndex)
         System.out.println(strr1);
         System.out.println(strr1.substring(3,12));
         //问题：如何实现，传入一个字符串（只包含字母），进行首字母大写操作

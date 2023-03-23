@@ -17,6 +17,9 @@ package DataStructure.ArrayList;
  *      array[size,array.length) == null
  */
 
+import DataStructure.ArrayList.*;
+
+
 /**
  * 逻辑：顺序表 是一个具体的线性表，在Java中，顺序表叫做ArrayList（早期版本叫做Vector），线性表叫做List
  *      顺序表 是一个具体的事务，以 类 的方式来体现，可以实例化对象
@@ -27,7 +30,7 @@ package DataStructure.ArrayList;
  *                              头插，头删，【插入删除的最坏情况】 时间复杂度是O(n)，需要将已有元素进行搬移
  *                              中间位置插入，删除，时间复杂度是O(n)
  */
-public class MyArrayList implements test.DataStructure.ArrayList.MyList {
+public class MyArrayList implements MyList {
     //定义属性
     private Long[] array; //array.length 也就是我们的容量(capacity)
     private int size;     //保存元素的个数
@@ -341,7 +344,7 @@ public class MyArrayList implements test.DataStructure.ArrayList.MyList {
     }
     public String toString(){
         /**
-         * String.format 返回一个 格式化（format）后的字符串（String）
+         * JavaSE.String.format 返回一个 格式化（format）后的字符串（JavaSE.String）
          * 格式化字符串的使用和 System.out.printf 的方式一样
          */
         return String.format("%d",this.size);

@@ -1,4 +1,4 @@
-package ObjectOriented_For_Java.Inherit;
+package JavaSE.ObjectOriented_For_Java.Inherit;
 
 import java.util.Scanner;
 

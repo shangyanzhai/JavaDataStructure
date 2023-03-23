@@ -1,4 +1,4 @@
-package ObjectOriented_For_Java.Port;
+package JavaSE.ObjectOriented_For_Java.Port;
 
 /**
  * 继承 接口Comparable和 接口Cloneable
@@ -123,7 +123,7 @@ public class Student implements Comparable,Cloneable{
     //覆写object类中的toString方法
     //1.
 //    @Override
-//    public String toString(){
+//    public JavaSE.String toString(){
 //        return "name : " + name + " year : " + year + " no : " + no;
 //    }
     //2.idea 自动覆写 alt + insert/enter

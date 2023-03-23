@@ -1,4 +1,4 @@
-package test.Array;
+package JavaSE.Array;
 
 /**
  * 二维数组

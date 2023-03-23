@@ -1,4 +1,4 @@
-package ObjectOriented_For_Java.Port;
+package JavaSE.ObjectOriented_For_Java.Port;
 
 /**
  * 定义接口USB
@@ -23,7 +23,7 @@ public interface USB extends A,B {
     //接口与接口之间可以使用extends关键字，接口可以继承父接口，接口的继承是多继承，
     // 没有is a原则,接口不能用extends继承一个类，如果能继承，则与接口只有全局常量与抽象方法这一特性冲突
     // 因为接口中普遍只存在全局常量和抽象方法，因此，接口中public static final abstract统统可以省略不写，只有接口可以省略
-//    public static final String MSG = "全局常量";//全局常量
+//    public static final JavaSE.String MSG = "全局常量";//全局常量
         String MSG = "全局常量";
         //    public abstract void plugIn();//抽象方法
         void plugIn();//抽象方法
