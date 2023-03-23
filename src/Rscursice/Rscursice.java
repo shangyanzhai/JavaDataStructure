@@ -1,4 +1,4 @@
-package test.Rscursice;
+package Rscursice;
 
 /**
  * 递归练习
