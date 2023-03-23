@@ -1,8 +1,9 @@
-package test.String;
+package String;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
+import Port.Student;
 import org.w3c.dom.ls.LSOutput;
 
 import java.nio.charset.StandardCharsets;
@@ -113,7 +114,7 @@ public class Strings {
         String s1 = String.valueOf(123);
         String s2 = String.valueOf(12.3);
         //当传入的是第三方的对象时，默认调用toString方法
-        String s3 = String.valueOf(new test.Port.Student("小黄",18,01));
+        String s3 = String.valueOf(new Student("小黄",18,01));
         String s4 = String.valueOf(false);
 //        System.out.println(s1);
 //        System.out.println(s2);

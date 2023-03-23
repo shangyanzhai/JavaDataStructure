@@ -1,4 +1,4 @@
-package test.Inherit;
+package Inherit;
 
 import test.Inherit.Dog;
 

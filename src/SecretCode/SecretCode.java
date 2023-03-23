@@ -1,4 +1,4 @@
-package test.SecretCode;
+package SecretCode;
 
 import com.sun.jmx.snmp.SnmpUnknownModelException;
 

@@ -1,4 +1,4 @@
-package test.Port;
+package Port;
 
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
@@ -75,10 +75,10 @@ public class Student implements Comparable,Cloneable{
 //        std1.year = 20;
 //        std1.print();
         //
-        test.Port.Student[] stu1 = new test.Port.Student[3];
-        stu1[0] = new test.Port.Student("小黄",20,01);
-        stu1[1] = new test.Port.Student("小红",21,07);
-        stu1[2] = new test.Port.Student("小文",17,05);
+        Student[] stu1 = new Student[3];
+        stu1[0] = new Student("小黄",20,01);
+        stu1[1] = new Student("小红",21,07);
+        stu1[2] = new Student("小文",17,05);
         //比较，覆写父类object中toString方法
         System.out.println(stu1[0]);
         //
@@ -86,9 +86,9 @@ public class Student implements Comparable,Cloneable{
         int a1 = 10;
         int a2 = 10;
         System.out.println(a1 == a2);
-        test.Port.Student[] stu2 = new test.Port.Student[2];
-        stu2[0] = new test.Port.Student("小黄",20,01);
-        stu2[1] = new test.Port.Student("小黄",20,01);
+        Student[] stu2 = new Student[2];
+        stu2[0] = new Student("小黄",20,01);
+        stu2[1] = new Student("小黄",20,01);
         System.out.println(stu2[0] == stu2[1]);
         System.out.println(stu2[1].equals(stu2[0]));//实际上还是false，如果要进行同一个类的不同对象的比较相等，需要覆写equals方法
         //重写后，则为trus（判断条件是全部相等）
@@ -97,9 +97,9 @@ public class Student implements Comparable,Cloneable{
     public int compareTo(Object o) {//Object类除了可以接受所有类的对象以外（object是java中所有类的父类）
         // （之所以要设立一个所有类的父类是为了参数统一化），object类具有参数的最高统一化
         //object类还可以接受所有的引用数据类型（接口和数组）
-        if(o instanceof test.Port.Student){//向下转型，还原o的Student的应用
+        if(o instanceof Student){//向下转型，还原o的Student的应用
             //因为此时需要比较当前对象this和输入时对象o的year谁大谁小
-            test.Port.Student stu = (test.Port.Student) o ;
+            Student stu = (Student) o ;
             if(this.year > stu.getYear()){
                 return 1;
             }else if(this.year < stu.getYear()){
@@ -112,12 +112,12 @@ public class Student implements Comparable,Cloneable{
         return 0;
     }
 
-    public test.Port.Student clone(){
-        test.Port.Student stu = null;
+    public Student clone(){
+        Student stu = null;
         try{
             //Object是所有类的父类
             //Objectl的clone方法，所有对象都有，但是只有实现了Cloneable接口的子类才能使用
-            stu = (test.Port.Student) super.clone();
+            stu = (Student) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
@@ -150,11 +150,11 @@ public class Student implements Comparable,Cloneable{
             return true;
         }
         //向下转型，如果这个类不是student类，则不具备可比性
-        if(!(obj instanceof test.Port.Student)){
+        if(!(obj instanceof Student)){
             return false;
         }
         //走到此可以明确知道，该对象是Student类，且两者之间不是同一对象
-        test.Port.Student stu = (test.Port.Student) obj;
+        Student stu = (Student) obj;
         return this.name.equals(stu.getName()) && (this.year == stu.getYear()) && (this.no == stu.getNo());
     }
 }

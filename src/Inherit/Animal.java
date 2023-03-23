@@ -1,4 +1,4 @@
-package test.Inherit;
+package Inherit;
 
 public class Animal {
     protected String name;

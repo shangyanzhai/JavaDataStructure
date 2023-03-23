@@ -1,4 +1,4 @@
-package test.Port;
+package Port;
 import java.util.Arrays;
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package test.String;
+package String;
 
 /**
  * String 反复修改字符串

@@ -1,4 +1,4 @@
-package test.Inherit;
+package Inherit;
 
 
 public class Cat extends Animal{

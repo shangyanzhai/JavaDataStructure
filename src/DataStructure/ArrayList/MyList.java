@@ -1,4 +1,4 @@
-package test.DataStructure.ArrayList;
+package DataStructure.ArrayList;
 
 /**
  * 自定义的线性表（以接口的形式体现）

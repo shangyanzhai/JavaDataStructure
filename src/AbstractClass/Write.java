@@ -1,4 +1,4 @@
-package test.AbstractClass;
+package AbstractClass;
 
 public abstract class Write {
 }

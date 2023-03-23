@@ -1,5 +1,6 @@
-package test.Port;
-import test.AbstractClass.Write;
+package Port;
+
+import AbstractClass.*;
 
 /**
  * 类Mouse 继承 接口USB

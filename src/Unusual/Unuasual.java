@@ -1,4 +1,4 @@
-package test.Unusual;
+package Unusual;
 
 import java.util.Scanner;
 
