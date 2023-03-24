@@ -14,22 +14,24 @@ public class SingleLinkedList {
     public void addFirst(int data){
         ListNode list = new ListNode((long)data);
         if(size == 0){
-            list.next = null;
+            node = list;
         }else{
             list.next = node;
+            node = list;
         }
         size++;
     }
     //尾插法
     public void addLast(int data) {
         ListNode list = new ListNode((long)data);
+        ListNode list1 = node;
         if(size == 0){
             node = list;
         }else{
-            while(node.next != null){
-                node = node.next;
+            while(list1.next != null){
+                list1 = list1.next;
             }
-            node.next = list;
+            list1.next = list;
         }
         size++;
     }
@@ -114,11 +116,11 @@ public class SingleLinkedList {
                     return;
                 }
                 if(list == null ){//此时说明list1为头节点
-                    list1 = list1.next;
+                    node = node.next;
                     size--;
                     return;
                 }
-                    list = list1.next;
+                    list.next = list1.next;
                     list1.next = null;
                     size--;
                     return;
@@ -151,11 +153,11 @@ public class SingleLinkedList {
                     return;
                 }
                 if(list == null ){//此时说明list1为头节点
-                    list1 = list1.next;
+                    node = node.next;
                     size--;
                 }
-                list = list1.next;
-                list1.next = null;
+                list.next = list1.next;
+                list1 = list1.next;
                 size--;
             }
             //此时说明并不相等，则继续循环
@@ -186,5 +188,53 @@ public class SingleLinkedList {
     public void clear(){
         size = 0;
         node = null;
+    }
+
+    public void test(){
+        if(size < 0){
+            throw new RuntimeException("size < 0,不合规");
+        }
+        if(size == 0 ){
+            if(node != null){
+                throw new RuntimeException("当 size == 0 的时候，此时node 不为空 ，不合规");
+            }
+            return;
+        }
+        if(size >=  1){
+            int num = 0;
+            for(ListNode list = node;list != null;list = list.next){
+                num++;
+            }
+            if(num != size){
+                throw new RuntimeException("size >= 1 时，长度不合规，size ！= 链表的长度");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        singleLinkedList.addFirst(1);//头插{1,node = null}
+//        singleLinkedList.display();
+//        singleLinkedList.test();
+        singleLinkedList.addLast(2);//尾插{1,node = {2,node = null}}
+//        singleLinkedList.test();
+//        singleLinkedList.display();
+        singleLinkedList.addFirst(3);//头插{3,node = {1 , node = {2,node = null}}}
+//        singleLinkedList.display();
+//        singleLinkedList.test();
+
+        singleLinkedList.addIndex(4,1);//此时index不合规，无法add
+        singleLinkedList.addIndex(1,4);//{3, node = {4 , node = {1 , node = {2, node = null}}}}
+//        singleLinkedList.display();
+//        singleLinkedList.test();
+        singleLinkedList.remove(3);//{4 , node = {1 , node = {2, node = null}}}
+        singleLinkedList.addLast(1);//{4,node = {1, node = {2,node = {1,node = null}}}}
+//        singleLinkedList.display();
+////        singleLinkedList.remove(2);//{4 , node = {1 , node = null}}
+//        singleLinkedList.remove(1);//{4 , node = {2, node = null}}
+//        singleLinkedList.display();
+        singleLinkedList.remove(100);
+        singleLinkedList.removeAllKey(1);
+        singleLinkedList.test();
     }
 }
