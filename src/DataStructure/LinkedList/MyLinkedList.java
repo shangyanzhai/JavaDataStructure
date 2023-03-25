@@ -11,9 +11,6 @@ package DataStructure.LinkedList;
 //                 head.next.prev == head    last.prev.next == last
 // 无论合适 size == 遍历得到的链表结点个数
 
-import java.util.ArrayList;
-import java.util.List;
-
 // 备注：这个链表类，不是结点类
 public class MyLinkedList {
     private ListNode head;
@@ -87,7 +84,7 @@ public class MyLinkedList {
             // 更新头结点
             head = node;
             size = size + 1;
-        } else if (index == size - 1) {
+        } else if (index == size) {
             // 把新的结点尾插到链表上，记得双向链表
             node.prev = last;
             last.next = node;
@@ -109,6 +106,166 @@ public class MyLinkedList {
 
             size = size + 1;
         }
+    }
+
+    public Long remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        if (index == 0) {
+            Long e = head.val;
+            head = head.next;
+            if (size > 1) {
+                head.prev = null;
+            } else {
+                // size == 1
+                last = null;
+            }
+
+            size = size - 1;
+            return e;
+        } else if (index == size - 1) {
+            // size 为 1 的情况是否需要考虑？  不需要，因为 size 为 1 时，index 必然是 0
+            // 所以此处只需要考虑 size > 1
+
+            ListNode prev = last.prev;      // 倒数第二个结点
+            Long e = last.val;
+            prev.next = null;
+            last = prev;
+
+            size = size - 1;
+            return e;
+        } else {
+            // index 是中间的
+            // 先找到要删除的结点
+            ListNode cur = head;
+            for (int i = 0; i < index; i++) {
+                cur = cur.next;
+            }
+
+            ListNode prev = cur.prev;
+            ListNode next = cur.next;
+
+            prev.next = next;
+            next.prev = prev;
+            size = size - 1;
+
+            return cur.val;
+        }
+    }
+
+    public boolean remove(Long e) {
+        ListNode cur = head;
+        for (int i = 0; i < size; i++) {
+            if (cur.val.equals(e)) {
+                // 需要删除 cur
+                if (i == 0) {
+                    head = head.next;
+                    if (head != null) {
+                        head.prev = null;
+                    } else {
+                        last = null;
+                    }
+                    size = size - 1;
+                    return true;
+                }
+
+                if (i == size - 1) {
+                    last = last.prev;
+                    if (last != null) {
+                        last.next = null;
+                    } else {
+                        head = null;
+                    }
+                    size = size - 1;
+                    return true;
+                }
+
+                ListNode prev = cur.prev;
+                ListNode next = cur.next;
+                prev.next = next;
+                next.prev = prev;
+                size = size - 1;
+
+                return true;
+            }
+
+            cur = cur.next;
+        }
+
+        return false;
+    }
+
+    public Long get(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        ListNode cur = head;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+
+        return cur.val;
+    }
+
+    public Long set(int index, Long e) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        ListNode cur = head;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+
+        Long o = cur.val;
+        cur.val = e;
+        return o;
+    }
+
+    public int indexOf(Long e) {
+        ListNode cur = head;
+        for (int i = 0; i < size; i++) {
+            if (cur.val.equals(e)) {
+                return i;
+            }
+            cur = cur.next;
+        }
+
+        return -1;
+    }
+
+    public int lastIndexOf(Long e) {
+        ListNode cur = last;
+        for (int i = size - 1; i >= 0; i--) {
+            if (cur.val.equals(e)) {
+                return i;
+            }
+
+            cur = cur.prev;
+        }
+
+        return -1;
+    }
+
+    public boolean contains(Long e) {
+        return indexOf(e) != -1;
+    }
+
+    public void clear() {
+        size = 0;
+        head = null;
+        last = null;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     // 从这里往下的代码，大家能大概理解即可，不需要会写
@@ -186,20 +343,96 @@ public class MyLinkedList {
     }
 
     public static void main(String[] args) {
+        // 测试 remove(index = 0):
         MyLinkedList list = new MyLinkedList();
+        list.add(100L);
+        list.add(200L);
+        list.add(300L);
+        list.add(400L);
         list.test();
-        list.testElements(new long[0]);
+        list.testElements(new long[] { 100, 200, 300, 400 });
 
-        list.add(10L);
+        System.out.println(list.remove(100L));  // true
         list.test();
-        list.testElements(new long[]{10});
+        list.testElements(new long[] { 200, 300, 400 });
 
-        list.add(20L);
+        System.out.println(list.remove(200L));  // true
         list.test();
-        list.testElements(new long[]{10, 20});
+        list.testElements(new long[] { 300, 400 });
 
-        list.add(30L);
+        System.out.println(list.remove(400L));  // true
         list.test();
-        list.testElements(new long[]{10, 20, 30});
+        list.testElements(new long[] { 300 });
+
+        System.out.println(list.remove(300L));  // true
+        list.test();
+        list.testElements(new long[] { });
+
+        System.out.println(list.remove(500L));  // false
+
+//        System.out.println(list.remove(2)); // 300
+//        list.test();
+//        list.testElements(new long[] { 100, 200, 400 });
+
+//        System.out.println(list.remove(0)); // 100
+//        System.out.println(list.remove(0)); // 200
+//        System.out.println(list.remove(0)); // 300
+//        list.test();
+
+//        System.out.println(list.remove(2)); // 300
+//        list.test();
+//        System.out.println(list.remove(1)); // 200
+//        list.test();
+//        System.out.println(list.remove(0)); // 100
+//        list.test();
+        /*
+
+        // size == 0 时的插入
+        list = new MyLinkedList();
+        list.add(0, 100L);
+        list.test();
+        list.testElements(new long[] { 100 });
+
+        // size == 1 时 头插 和 尾插
+        list.add(0, 200L);
+        list.test();
+        list.testElements(new long[] { 200, 100 });
+
+        list = new MyLinkedList();
+        list.add(100L);
+        list.add(1, 200L);
+        list.test();
+        list.testElements(new long[] { 100, 200 });
+
+        // size > 1 时  头插、尾插，中间插入
+        list.add(0, 50L);
+        list.test();
+        list.testElements(new long[] { 50, 100, 200 });
+
+        list.add(3, 300L);
+        list.test();
+        list.testElements(new long[] { 50, 100, 200, 300 });
+
+        list.add(2, 1000L);
+        list.test();
+        list.testElements(new long[] { 50, 100, 1000, 200, 300 });
+
+         */
+
+
+//        list.test();
+//        list.testElements(new long[0]);
+//
+//        list.add(10L);
+//        list.test();
+//        list.testElements(new long[]{10});
+//
+//        list.add(20L);
+//        list.test();
+//        list.testElements(new long[]{10, 20});
+//
+//        list.add(30L);
+//        list.test();
+//        list.testElements(new long[]{10, 20, 30});
     }
 }
