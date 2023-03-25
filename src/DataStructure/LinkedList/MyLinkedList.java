@@ -7,7 +7,7 @@ package DataStructure.LinkedList;
 // if size == 0 then  head == null &&  last == null
 // if size == 1 then  head != null &&  head == last
 // if size >= 1 then  head.prev == null &&  last.next == null
-// if size > 1 除了 head 和 last 之外  任意 node   node.prev.next == node && node.next.prev == node
+// if size > 1 除了 head 和 last 之外  任意 node  满足node.prev.next == node && node.next.prev == node
 //                 head.next.prev == head    last.prev.next == last
 // 无论合适 size == 遍历得到的链表结点个数
 
