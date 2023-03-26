@@ -70,14 +70,14 @@ public class SingleLinkedList {
             return false;
         }
         if(size == 1) {
-            if(node.val == key){
+            if(node.val.equals((long)key)){
                 return true;
             }
             return false;
         }
 
 //        while(node.next != null){
-//            if(node.val == key){
+//            if(node.val.equals((long)key)){
 //                return true;
 //            }
 //            node = node.next;
@@ -99,7 +99,7 @@ public class SingleLinkedList {
             return ;
         }
         if(size == 1){
-            if(node.val == key){
+            if(node.val.equals((long)key)){
                 node = null;
                 size--;
             }else{
@@ -109,7 +109,7 @@ public class SingleLinkedList {
         ListNode list = null;
         ListNode list1 = node;
         while(list1 != null){
-            if(list1.val == key){
+            if(node.val.equals((long)key)){
                 if(list1.next == null ){//此时说明list1为尾结点
                     list.next = null;
                     size--;
@@ -136,7 +136,7 @@ public class SingleLinkedList {
             return ;
         }
         if(size == 1){
-            if(node.val == key){
+            if(node.val.equals((long)key)){
                 node = null;
                 size--;
             }else{
@@ -146,7 +146,7 @@ public class SingleLinkedList {
         ListNode list = null;
         ListNode list1 = node;
         while(list1 != null){
-            if(list1.val == key){
+            if(node.val.equals((long)key)){
                 if(list1.next == null ){//此时说明list1为尾结点
                     list.next = null;
                     size--;
