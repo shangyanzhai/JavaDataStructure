@@ -38,7 +38,7 @@ public class PalindromeList {
 
         int num = sizeof(A);
 
-        if(num == 1){
+        if(num == 1 || num == 0){
             return true;
         }
 
@@ -70,11 +70,11 @@ public class PalindromeList {
     }
 
     public static void main(String[] args) {
-        ListNode list1= new ListNode(1);
-        ListNode list2 = new ListNode(2,list1);
-//        ListNode list3 = new ListNode(2,list2);
-        ListNode list = new ListNode(3,list2);//{1,2,2,1}
+        ListNode list1= new ListNode();
+//        ListNode list2 = new ListNode(2,list1);
+////        ListNode list3 = new ListNode(2,list2);
+//        ListNode list = new ListNode(3,list2);//{1,2,2,1}
         PalindromeList palindromeList = new PalindromeList();
-        System.out.println(palindromeList.chkPalindrome(list));
+        System.out.println(palindromeList.chkPalindrome(list1));
     }
 }
