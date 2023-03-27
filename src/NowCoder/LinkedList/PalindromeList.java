@@ -38,7 +38,11 @@ public class PalindromeList {
 
         int num = sizeof(A);
 
-        if(num == 1 || num == 0){
+        if(num == 0){
+            return false;
+        }
+
+        if(num == 1){
             return true;
         }
 
