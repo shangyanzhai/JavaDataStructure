@@ -1,4 +1,4 @@
-package NowCoder.LinkedList;
+package NowCoder.DataStructrue.LinkedList;
 
 public class ListNode {
     int val;

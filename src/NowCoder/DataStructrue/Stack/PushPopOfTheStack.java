@@ -1,4 +1,4 @@
-package NowCoder.Stack;
+package NowCoder.DataStructrue.Stack;
 
 /**
  *  栈的压入、弹出序列

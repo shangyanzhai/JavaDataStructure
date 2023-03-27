@@ -1,4 +1,4 @@
-package NowCoder.LinkedList;
+package NowCoder.DataStructrue.LinkedList;
 
 /**
  *    OR36 链表的回文结构
