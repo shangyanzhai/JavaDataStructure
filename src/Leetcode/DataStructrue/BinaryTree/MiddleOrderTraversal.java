@@ -56,16 +56,12 @@ class MiddleOrderTraversal {
             return list;
         }
         //因为中序遍历是先遍历左子树，然后是根结点，再然后是右子树。
-        if(root.left != null){
-            list.addAll(inorderTraversal(root.left));
-        }
+        list.addAll(inorderTraversal(root.left));
         //走到此步，说明左子树为空
         //此时，则需要将根结点置入表中
         list.add(root.val);
         //下面需要判断右子树是否存在
-        if(root.right != null){
-            list.addAll(inorderTraversal(root.right));
-        }
+        list.addAll(inorderTraversal(root.right));
         return list;
     }
 }
