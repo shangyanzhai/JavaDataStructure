@@ -58,4 +58,26 @@ public class PostOrderTraversal {
 
         return list;
     }
+    public static TreeNode buildTree() {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+
+        n1.left = n2;   n1.right = n3;
+        n2.left = null; n2.right = null;    // 可以省略
+        n3.left = n4;   n3.right = n5;
+        n4.left = null; n4.right = null;
+        n5.left = null; n5.right = null;
+
+        return n1;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = buildTree();
+        PostOrderTraversal postOrderTraversal = new PostOrderTraversal();
+        postOrderTraversal.postorderTraversal(root);
+
+    }
 }
