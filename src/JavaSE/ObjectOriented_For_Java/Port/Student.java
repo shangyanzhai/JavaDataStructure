@@ -88,7 +88,7 @@ public class Student implements Comparable,Cloneable{
         stu2[1] = new Student("小黄",20,01);
         System.out.println(stu2[0] == stu2[1]);
         System.out.println(stu2[1].equals(stu2[0]));//实际上还是false，如果要进行同一个类的不同对象的比较相等，需要覆写equals方法
-        //重写后，则为trus（判断条件是全部相等）
+        //重写后，则为true（判断条件是全部相等）
     }
     @Override
     public int compareTo(Object o) {//Object类除了可以接受所有类的对象以外（object是java中所有类的父类）
