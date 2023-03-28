@@ -62,20 +62,38 @@ import java.util.List;
  * }
  */
 public class PreOrderTraversal {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> list1 = new ArrayList<>();
-        if(root == null){
-            return list1;
+
+//    public List<Integer> preorderTraversal(TreeNode root) {
+//        List<Integer> list1 = new ArrayList<>();
+//        if(root == null){
+//            return list1;
+//        }
+//        //前序遍历 首先访问根结点，然后访问左子树，再然后访问右子树
+//        //走到这一步代表至少存在一个根结点
+//        list1.add(root.val);
+//
+//        //再然后遍历左子树
+//        list1.addAll(preorderTraversal(root.left));
+//        list1.addAll(preorderTraversal(root.right));
+//
+//        return list1;
+//    }
+private List<Integer> resultList = new ArrayList<>();
+
+    private void preorder(TreeNode root) {
+        if (root == null) {
+            return;
         }
-        //前序遍历 首先访问根结点，然后访问左子树，再然后访问右子树
-        //走到这一步代表至少存在一个根结点
-        list1.add(root.val);
 
-        //再然后遍历左子树
-        list1.addAll(preorderTraversal(root.left));
-        list1.addAll(preorderTraversal(root.right));
+        resultList.add(root.val);
+        preorder(root.left);
+        preorder(root.right);
+    }
 
-        return list1;
+    public List<Integer> preorderTraversal(TreeNode root) {
+        resultList.clear(); // 确保结果集一开始是 empty
+        preorder(root);
+        return resultList;
     }
 }
 
