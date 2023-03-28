@@ -33,6 +33,9 @@ package Leetcode.DataStructrue.BinaryTree;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
+
+import jdk.nashorn.internal.ir.Node;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +51,11 @@ public class PostOrderTraversal {
 
         //先遍历左子树
         list.addAll(postorderTraversal(root.left));
+
         list.addAll(postorderTraversal(root.right));
+
         list.add(root.val);
+
         return list;
     }
 }
