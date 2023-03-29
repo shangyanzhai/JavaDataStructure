@@ -50,22 +50,35 @@ package Leetcode.DataStructrue.BinaryTree;
  */
 
 public class FilpTheBinaryTree {
-    public void change(TreeNode root){
-        if(root == null){
-            return;
-        }
-        TreeNode node = new TreeNode();
-        node = root.left;
-        root.left = root.right;
-        root.right = node;
-    }
+//    public void change(TreeNode root){
+//        if(root == null){
+//            return;
+//        }
+//        TreeNode node = new TreeNode();
+//        node = root.left;
+//        root.left = root.right;
+//        root.right = node;
+//    }
+//    public TreeNode invertTree(TreeNode root) {
+//        if(root == null){
+//            return root;
+//        }
+//        change(root);
+//        invertTree(root.left);
+//        invertTree(root.right);
+//        return root;
+//    }
     public TreeNode invertTree(TreeNode root) {
-        if(root == null){
-            return root;
+        if (root == null) {
+            return null;
         }
-        change(root);
-        invertTree(root.left);
-        invertTree(root.right);
+
+        TreeNode leftSubTree = invertTree(root.left);
+        TreeNode rightSubTree = invertTree(root.right);
+
+        root.left = rightSubTree;
+        root.right = leftSubTree;
+
         return root;
     }
 }

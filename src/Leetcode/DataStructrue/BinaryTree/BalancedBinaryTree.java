@@ -52,6 +52,7 @@ package Leetcode.DataStructrue.BinaryTree;
  */
 
 public class BalancedBinaryTree {
+    //  一
     public boolean isBalanced(TreeNode root) {
         if(root == null || (root.left == null && root.right == null)){
             return true;
@@ -82,4 +83,78 @@ public class BalancedBinaryTree {
         }
         return true;
     }
+
+    // 二
+    // public int heightOf(TreeNode root) {
+    //     if (root == null) {
+    //         return 0;
+    //     }
+
+    //     return Integer.max(heightOf(root.left), heightOf(root.right)) + 1;
+    // }
+
+    // public List<TreeNode> preorder(TreeNode root) {
+    //     List<TreeNode> ans = new ArrayList<>();
+    //     if (root == null) {
+    //         return ans;
+    //     }
+
+    //     ans.add(root);
+    //     ans.addAll(preorder(root.left));
+    //     ans.addAll(preorder(root.right));
+
+    //     return ans;
+    // }
+
+    // public boolean isBalanced(TreeNode root) {
+    //     List<TreeNode> list = preorder(root);
+    //     for (TreeNode node : list) {
+    //         int leftHeight = heightOf(node.left);
+    //         int rightHeight = heightOf(node.right);
+    //         int diff = leftHeight - rightHeight;
+    //         if (diff <= -2 || diff >= 2) {
+    //             return false;
+    //         }
+    //     }
+
+    //     return true;
+    // }
+
+    //三
+    /**
+    public int heightOf(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return Integer.max(heightOf(root.left), heightOf(root.right)) + 1;
+    }
+
+    public List<TreeNode> preorder(TreeNode root) {
+        List<TreeNode> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
+
+        ans.add(root);
+        ans.addAll(preorder(root.left));
+        ans.addAll(preorder(root.right));
+
+        return ans;
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        List<TreeNode> list = preorder(root);
+        for (TreeNode node : list) {
+            int leftHeight = heightOf(node.left);
+            int rightHeight = heightOf(node.right);
+            int diff = leftHeight - rightHeight;
+            if (diff <= -2 || diff >= 2) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    */
 }
