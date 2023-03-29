@@ -56,24 +56,28 @@ class TheSameTree {
         TreeNode p1 = p;
         TreeNode q1 = q;
         //首先，如果其中一个二叉树为空，另一个不为空，则返回false
-        if((p1 == null && q1 != null) || (p1 != null && q1 ==null)){
-            return false;
-        }
         if(p1 == null && q1 == null){
             return true;
         }
-        //此时，可以判断出来，p 和 q 均不为空
-        if(p1.val != q1.val){
-            return false;
-        }else{
-            if(isSameTree(p1.left,q1.left)){
-                if(isSameTree(p1.right,q1.right)){
-                    return true;
-                }
-                return false;
-            }
+        if(p1 == null || q1 == null){
             return false;
         }
+
+//        //此时，可以判断出来，p 和 q 均不为空
+//        if(p1.val != q1.val){
+//            return false;
+//        }else{
+//            if(isSameTree(p1.left,q1.left)){
+//                if(isSameTree(p1.right,q1.right)){
+//                    return true;
+//                }
+//                return false;
+//            }
+//            return false;
+//        }
+        return p.val == q.val
+                && isSameTree(p.left, q.left)
+                && isSameTree(p.right, q.right);
     }
 }
 
