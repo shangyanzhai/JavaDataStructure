@@ -29,75 +29,80 @@ public class BinaryTreeOperations {
     public static void main(String[] args) {
         TreeNode root = buildTree();
 
-        System.out.print("前序：");
-        preorder(root);
-        System.out.println();
-
-        System.out.print("中序：");
-        inorder(root);
-        System.out.println();
-
-        System.out.print("后序：");
-        postorder(root);
-        System.out.println();
-
-        int size = sizeof_1(root);
-        System.out.println("结点个数: " + size);
-        size = sizeof_1(root);
-        System.out.println("结点个数: " + size);
-        size = sizeof_1(root);
-        System.out.println("结点个数: " + size);
-
-        resultSize = 0;
-        sizeof_2(root);
-        System.out.println("结点个数: " + resultSize);
-
-
-        resultSize = 0;
-        sizeof_2(root);
-        System.out.println("结点个数: " + resultSize);
-
-
-        resultSize = 0;
-        sizeof_2(root);
-        System.out.println("结点个数: " + resultSize);
-
-
-        int leafSize = leafSizeOf_1(root);
-        System.out.println("叶子结点个数: " + leafSize);
-
-        resultLeafSize = 0;
-        leafSizeOf_2(root);
-        System.out.println("叶子结点个数: " + resultLeafSize);
-
-        resultLeafSize = 0;
-        leafSizeOf_2(root);
-        System.out.println("叶子结点个数: " + resultLeafSize);
-
-        resultLeafSize = 0;
-        leafSizeOf_2(root);
-        System.out.println("叶子结点个数: " + resultLeafSize);
-
-        int kSize = sizeofKLevel(root, 1);
-        System.out.println("第1层: " + kSize);
-
-        kSize = sizeofKLevel(root, 2);
-        System.out.println("第2层: " + kSize);
-
-        kSize = sizeofKLevel(root, 3);
-        System.out.println("第3层: " + kSize);
-
-        kSize = sizeofKLevel(root, 4);
-        System.out.println("第4层: " + kSize);
+//        System.out.print("前序：");
+//        preorder(root);
+//        System.out.println();
+//
+//        System.out.print("中序：");
+//        inorder(root);
+//        System.out.println();
+//
+//        System.out.print("后序：");
+//        postorder(root);
+//        System.out.println();
+//
+//        int size = sizeof_1(root);
+//        System.out.println("结点个数: " + size);
+//        size = sizeof_1(root);
+//        System.out.println("结点个数: " + size);
+//        size = sizeof_1(root);
+//        System.out.println("结点个数: " + size);
+//
+//        resultSize = 0;
+//        sizeof_2(root);
+//        System.out.println("结点个数: " + resultSize);
+//
+//
+//        resultSize = 0;
+//        sizeof_2(root);
+//        System.out.println("结点个数: " + resultSize);
+//
+//
+//        resultSize = 0;
+//        sizeof_2(root);
+//        System.out.println("结点个数: " + resultSize);
+//
+//
+//        int leafSize = leafSizeOf_1(root);
+//        System.out.println("叶子结点个数: " + leafSize);
+//
+//        resultLeafSize = 0;
+//        leafSizeOf_2(root);
+//        System.out.println("叶子结点个数: " + resultLeafSize);
+//
+//        resultLeafSize = 0;
+//        leafSizeOf_2(root);
+//        System.out.println("叶子结点个数: " + resultLeafSize);
+//
+//        resultLeafSize = 0;
+//        leafSizeOf_2(root);
+//        System.out.println("叶子结点个数: " + resultLeafSize);
+//
+//        int kSize = sizeofKLevel(root, 1);
+//        System.out.println("第1层: " + kSize);
+//
+//        kSize = sizeofKLevel(root, 2);
+//        System.out.println("第2层: " + kSize);
+//
+//        kSize = sizeofKLevel(root, 3);
+//        System.out.println("第3层: " + kSize);
+//
+//        kSize = sizeofKLevel(root, 4);
+//        System.out.println("第4层: " + kSize);
         // 构建一棵空树，如何处理
         // 空树 <=> 一个结点都没有的树 <=> 没有根结点
 //        root = null;
-
-        levelOrderWithNull(root);
+//
+//        levelOrderWithNull(root);
+        System.out.println(sizeofKLevel(root, 2));
+        System.out.println(sizeof_1(root));
     }
 
-    // 前序遍历（只进行打印）
-    // 这个方法的含义：对 root 结点为根的树进行遍历
+    /**
+     * // 前序遍历（只进行打印）
+     * // 这个方法的含义：对 root 结点为根的树进行遍历
+     * @param root
+     */
     public static void preorder(TreeNode root) {
         if (root == null) {
             // 根结点不存在 <=> 空树
@@ -114,6 +119,12 @@ public class BinaryTreeOperations {
         preorder(root.right);
     }
 
+    /**
+     * // 中序遍历（只进行打印）
+     * // 这个方法的含义：对 root 结点为根的树进行遍历
+     * @param root
+     */
+
     public static void inorder(TreeNode root) {
         if (root == null) {
             System.out.print("# ");
@@ -124,7 +135,11 @@ public class BinaryTreeOperations {
         System.out.print(root.val + " ");
         inorder(root.right);
     }
-
+    /**
+     * // 后序遍历（只进行打印）
+     * // 这个方法的含义：对 root 结点为根的树进行遍历
+     * @param root
+     */
     public static void postorder(TreeNode root) {
         if (root == null) {
             System.out.print("# ");
@@ -140,7 +155,12 @@ public class BinaryTreeOperations {
         System.out.print(root.val + " ");
     }
 
-    // 子问题的思想
+    /** //反回结点个数
+     * // 子问题的思想
+     * // 结点个数
+     * @param root
+     * @return
+     */
     public static int sizeof_1(TreeNode root) {
         if (root == null) {
             return 0;
@@ -152,7 +172,11 @@ public class BinaryTreeOperations {
         int size = leftSize + rightSize + 1;
         return size;
     }
-
+    /**
+     * // 子问题的思想
+     * @param root
+     * @return
+     */
     private static void sizeof_2(TreeNode root) {
         if (root == null) {
             return;
@@ -163,8 +187,12 @@ public class BinaryTreeOperations {
         sizeof_2(root.right);
     }
 
-    // 求叶子结点个数
-    // 子问题思想
+    /**
+     * // 求叶子结点个数
+     * // 子问题思想
+     * @param root
+     * @return
+     */
     private static int leafSizeOf_1(TreeNode root) {
         if (root == null) {
             return 0;
@@ -181,7 +209,12 @@ public class BinaryTreeOperations {
         int leafSize = leftSize + rightSize;
         return leafSize;
     }
-
+    /**
+     * // 求叶子结点个数
+     * // 子问题思想
+     * @param root
+     * @return
+     */
     private static void leafSizeOf_2(TreeNode root) {
         if (root == null) {
             return;
@@ -197,7 +230,12 @@ public class BinaryTreeOperations {
         // 剩余情况 root.left == null && root.right == null
         resultLeafSize += 1;
     }
-
+    /**
+     * // 求二叉树最大深度
+     * // 子问题思想
+     * @param root
+     * @return
+     */
     private static int heightOf(TreeNode root) {
         if (root == null) {
             return 0;
@@ -209,7 +247,12 @@ public class BinaryTreeOperations {
         return Integer.max(leftHeight, rightHeight) + 1;
     }
 
-    // 规定 root 所在的层是 1，k >= 1
+    /**
+     * // 求二叉树每层节点个数
+     // 规定 root 所在的层是 1，k >= 1
+     * @param root
+     * @return
+     */
     private static int sizeofKLevel(TreeNode root, int k) {
         if (root == null) {
             return 0;
@@ -229,6 +272,15 @@ public class BinaryTreeOperations {
         return leftSize + rightSize;
     }
 
+    /**
+     * // 使用前序的方式进行搜索
+     * // 1. 先判断根的元素是否是 target，一旦找到，返回找到
+     * // 2. 如果根不是，去左子树查找，一旦找到，返回找到
+     * // 3. 最后去右子树查找
+     * @param root
+     * @param target
+     * @return
+     */
     public static boolean contains(TreeNode root, int target) {
         // 使用前序的方式进行搜索
         // 1. 先判断根的元素是否是 target，一旦找到，返回找到
@@ -250,7 +302,15 @@ public class BinaryTreeOperations {
         boolean rightContains = contains(root.right, target);
         return rightContains;
     }
-
+    /**
+     * // 使用前序的方式进行搜索
+     * // 1. 先判断根的元素是否是 target，一旦找到，返回对应结点
+     * // 2. 如果根不是，去左子树查找，一旦找到，返回对应结点
+     * // 3. 最后去右子树查找
+     * @param root
+     * @param target
+     * @return
+     */
     public static TreeNode nodeOf(TreeNode root, int target) {
         if (root == null) {
             return null;
@@ -270,6 +330,15 @@ public class BinaryTreeOperations {
         return nodeOf(root.right, target);
     }
 
+    /**
+     * // 使用前序的方式进行搜索
+     * // 1. 先判断根结点是不是 target，一旦找到，返回找到
+     * // 2. 如果根不是，去左子树查找，一旦找到，返回找到
+     * // 3. 最后去右子树查找
+     * @param root
+     * @param target
+     * @return
+     */
     public static boolean containsNode(TreeNode root, TreeNode target) {
         if(root == null){
             return false;
@@ -285,8 +354,11 @@ public class BinaryTreeOperations {
 
         return containsNode(root.right,target);
     }
-
-    // null 写成 #
+    /**
+     * 打印每个结点深度
+     * // null 写成 #
+     * @param root
+     */
     public static void levelOrderWithNull(TreeNode root) {
         if(root == null ){
             return ;
@@ -294,7 +366,6 @@ public class BinaryTreeOperations {
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        System.out.println(root.val);
         while(!queue.isEmpty()){
             TreeNode node = queue.poll();
             if(node == null){
@@ -307,6 +378,10 @@ public class BinaryTreeOperations {
         }
     }
 
+    /**
+     * 打印每个结点深度
+     * @param root
+     */
     public static void levelOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -329,9 +404,13 @@ public class BinaryTreeOperations {
         }
     }
 
-    //判断是否是完全二叉树
-    //普通二叉树 1 2 3 # # 3 # 4 # #
-    //完全二叉树 1 2 3 4 # # #
+    /**
+     * //判断是否是完全二叉树
+     * //普通二叉树 1 2 3 # # 3 # 4 # #
+     * //完全二叉树 1 2 3 4 # # #
+     * @param root
+     * @return
+     */
     public static boolean isCompleteTree(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -357,8 +436,14 @@ public class BinaryTreeOperations {
         return true;
     }
 
-    //判断是否为空树
+    /**
+     * 判断两棵二叉树是否镜像
+     * @param p
+     * @param q
+     * @return
+     */
     public boolean isMirror(TreeNode p, TreeNode q) {
+        //判断是否为空树
         if(p == null && q == null){
             return true;
         }
@@ -372,7 +457,11 @@ public class BinaryTreeOperations {
 
     }
 
-    //打印每个结点的深度
+    /**
+     * //打印每个结点的深度
+     * @param root
+     * @param level
+     */
     public void preorderWithLevel(TreeNode root, int level) {
         if (root == null) {
             return;
