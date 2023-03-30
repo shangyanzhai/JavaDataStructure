@@ -1,6 +1,8 @@
 package Leetcode.DataStructrue.BinaryTree;
 
 
+import java.util.*;
+
 /**
  *
  *  236. 二叉树的最近公共祖先
@@ -50,34 +52,86 @@ package Leetcode.DataStructrue.BinaryTree;
  * }
  */
 public class TheNearestPublicAncestorOfBinaryTrees {
-    public boolean isSameTree(TreeNode root,TreeNode target){
-        if(root == null){
-            return false;
-        }
-        if(root == target){
-            return true;
-        }
-
-        if(isSameTree(root.left,target)){
-            return true;
-        }
-        return isSameTree(root.right,target);
-    }
+//    public boolean isSameTree(TreeNode root,TreeNode target){
+//        if(root == null){
+//            return false;
+//        }
+//        if(root == target){
+//            return true;
+//        }
+//
+//        if(isSameTree(root.left,target)){
+//            return true;
+//        }
+//        return isSameTree(root.right,target);
+//    }
+//    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//        if(p == root || q == root){
+//            // System.out.println("2:" + root.val);
+//            return root;
+//        }
+//        if(isSameTree(root.left,q) && isSameTree(root.left,p)){
+//            // System.out.println("3:" + root.val);
+//            return lowestCommonAncestor(root.left,p,q);
+//        }
+//        if(isSameTree(root.right,q) && isSameTree(root.right,p)){
+//            return lowestCommonAncestor(root.right,p,q);
+//        }
+//
+//        // System.out.println("1:" + root.val);
+//
+//        return root;
+//    }
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(p == root || q == root){
-            // System.out.println("2:" + root.val);
-            return root;
-        }
-        if(isSameTree(root.left,q) && isSameTree(root.left,p)){
-            // System.out.println("3:" + root.val);
-            return lowestCommonAncestor(root.left,p,q);
-        }
-        if(isSameTree(root.right,q) && isSameTree(root.right,p)){
-            return lowestCommonAncestor(root.right,p,q);
+        List<TreeNode> ancestorListOfP = new ArrayList<>();
+        List<TreeNode> ancestorListOfQ = new ArrayList<>();
+
+        // 找到 p 和 q 的祖先列表
+        TreeNode cur = root;
+        TreeNode last = null;
+        Deque<TreeNode> stack = new LinkedList<>();
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            TreeNode top = stack.peek();
+            if (top.right == null || top.right == last) {
+                if (top == p) {
+                    ancestorListOfP.addAll(stack);
+                } else if (top == q) {
+                    ancestorListOfQ.addAll(stack);
+                }
+
+                stack.pop();
+                last = top;
+            } else {
+                cur = top.right;
+            }
         }
 
-        // System.out.println("1:" + root.val);
+        if (ancestorListOfP.size() > ancestorListOfQ.size()) {
+            int diff = ancestorListOfP.size() - ancestorListOfQ.size();
+            for (int i = 0; i < diff; i++) {
+                ancestorListOfP.remove(0);
+            }
+        } else if (ancestorListOfP.size() < ancestorListOfQ.size()) {
+            int diff = ancestorListOfQ.size() - ancestorListOfP.size();
+            for (int i = 0; i < diff; i++) {
+                ancestorListOfQ.remove(0);
+            }
+        }
 
-        return root;
+        for (int i = 0; i < ancestorListOfP.size(); i++) {
+            TreeNode anP = ancestorListOfP.get(i);
+            TreeNode anQ = ancestorListOfQ.get(i);
+            if (anP == anQ) {
+                return anP;
+            }
+        }
+
+        // 理论不会走到这里
+        return null;
     }
 }
