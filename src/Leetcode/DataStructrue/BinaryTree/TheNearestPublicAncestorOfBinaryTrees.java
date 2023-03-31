@@ -82,6 +82,7 @@ public class TheNearestPublicAncestorOfBinaryTrees {
 //
 //        return root;
 //    }
+    //解法二
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         List<TreeNode> ancestorListOfP = new ArrayList<>();
         List<TreeNode> ancestorListOfQ = new ArrayList<>();
