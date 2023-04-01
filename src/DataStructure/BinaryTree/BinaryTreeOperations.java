@@ -96,6 +96,7 @@ public class BinaryTreeOperations {
 //        levelOrderWithNull(root);
         System.out.println(sizeofKLevel(root, 2));
         System.out.println(sizeof_1(root));
+        System.out.println(levelOrderWithLevelButReturnList(root));
     }
 
     /**
@@ -493,7 +494,7 @@ public class BinaryTreeOperations {
         return list;
     }
 
-    public List<TreeNodeWithLevel> levelOrderWithLevelButReturnList(TreeNode root) {
+    public static List<TreeNodeWithLevel> levelOrderWithLevelButReturnList(TreeNode root) {
         List<TreeNodeWithLevel> list = new LinkedList<>();
         Queue<TreeNodeWithLevel> queue = new LinkedList<>();
 
