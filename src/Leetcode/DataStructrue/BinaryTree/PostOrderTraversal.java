@@ -1,5 +1,6 @@
 package Leetcode.DataStructrue.BinaryTree;
 
+import java.util.*;
 /**
  * 145  二叉树的后序遍历
  *
@@ -40,22 +41,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostOrderTraversal {
-    public List<Integer> postorderTraversal(TreeNode root) {
-        //后序遍历 ： 先遍历左子树，再遍历右子树 ，最后再遍历根结点
+    //递归
+    // public List<Integer> postorderTraversal(TreeNode root) {
+    //     //后序遍历 ： 先遍历左子树，再遍历右子树 ，最后再遍历根结点
 
+    //     List<Integer> list = new ArrayList<>();
+
+    //     if(root == null){
+    //         return list;
+    //     }
+
+    //     //先遍历左子树
+    //     list.addAll(postorderTraversal(root.left));
+    //     list.addAll(postorderTraversal(root.right));
+    //     list.add(root.val);
+    //     return list;
+    // }
+
+    /**
+     // 非递归
+     */
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
 
-        if(root == null){
-            return list;
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        TreeNode last = null;
+        while(cur != null || !stack.isEmpty()){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode top = stack.peek();
+            if (top.right == null) {
+                stack.pop();
+                list.add(top.val);
+
+                last = top;
+            } else if (top.right == last) {
+                stack.pop();
+                list.add(top.val);
+
+                last = top;
+            } else {
+                // 说明是从 top 左边回来的
+                cur = top.right;
+            }
         }
-
-        //先遍历左子树
-        list.addAll(postorderTraversal(root.left));
-
-        list.addAll(postorderTraversal(root.right));
-
-        list.add(root.val);
-
         return list;
     }
     public static TreeNode buildTree() {
