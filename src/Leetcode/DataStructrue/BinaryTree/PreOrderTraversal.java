@@ -1,5 +1,6 @@
 package Leetcode.DataStructrue.BinaryTree;
 
+import java.util.*;
 /**
  * 144  二叉树的前序遍历
  *
@@ -43,9 +44,6 @@ package Leetcode.DataStructrue.BinaryTree;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -78,7 +76,8 @@ public class PreOrderTraversal {
 //
 //        return list1;
 //    }
-private List<Integer> resultList = new ArrayList<>();
+    /*
+    private List<Integer> resultList = new ArrayList<>();
 
     private void preorder(TreeNode root) {
         if (root == null) {
@@ -94,6 +93,35 @@ private List<Integer> resultList = new ArrayList<>();
         resultList.clear(); // 确保结果集一开始是 empty
         preorder(root);
         return resultList;
+    }
+    */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        TreeNode last = null;
+        while(cur != null || !stack.isEmpty()){
+            while(cur != null){
+                stack.push(cur);
+                list.add(cur.val);
+                cur = cur.left;
+            }
+            TreeNode top = stack.pop();
+//            if(top.right == null){
+//                last = top;
+//            }else if(top.right == last){
+//                last = top;
+//            }else{
+//                cur = top.right;
+//            }
+            if(top.right != null){
+                cur = top.right;
+            }else{
+                top = null;
+            }
+        }
+        return list;
     }
 }
 

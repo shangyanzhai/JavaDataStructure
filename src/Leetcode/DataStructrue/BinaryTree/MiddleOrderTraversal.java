@@ -64,5 +64,29 @@ class MiddleOrderTraversal {
         list.addAll(inorderTraversal(root.right));
         return list;
     }
+    /**
+     * public List<Integer> inorderTraversal(TreeNode root) {
+     *         List<Integer> list = new ArrayList<>();
+     *
+     *         TreeNode cur = root;
+     *         TreeNode last = null;
+     *         Deque<TreeNode> stack = new LinkedList<>();
+     *
+     *         while(cur != null || !stack.isEmpty()){
+     *             while(cur != null){
+     *                 stack.push(cur);
+     *                 cur = cur.left;
+     *             }
+     *
+     *             TreeNode top = stack.pop();
+     *             list.add(top.val);
+     *
+     *             if(top.right != null){
+     *                 cur = top.right;
+     *             }
+     *         }
+     *         return list;
+     *     }
+     */
 }
 
