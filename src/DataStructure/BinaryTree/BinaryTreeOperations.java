@@ -143,7 +143,7 @@ public class BinaryTreeOperations {
      */
     public static void postorder(TreeNode root) {
         if (root == null) {
-            System.out.print("# ");
+            System.out.print("#");
             return;
         }
         // 从双亲进来，第一次经过该结点
