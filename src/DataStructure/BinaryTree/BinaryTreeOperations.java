@@ -356,7 +356,7 @@ public class BinaryTreeOperations {
         return containsNode(root.right,target);
     }
     /**
-     * 打印每个结点深度
+     * 打印每个结点
      * // null 写成 #
      * @param root
      */
@@ -380,7 +380,7 @@ public class BinaryTreeOperations {
     }
 
     /**
-     * 打印每个结点深度
+     * 打印每个结点
      * @param root
      */
     public static void levelOrder(TreeNode root) {
