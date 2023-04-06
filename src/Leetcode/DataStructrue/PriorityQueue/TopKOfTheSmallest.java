@@ -23,21 +23,54 @@ import java.util.*;
  */
 public class TopKOfTheSmallest {
     //方法一 直接建 arr.length 大小的堆
-    public int[] smallestK(int[] arr, int k) {
-        PriorityQueue<Integer> pqueue = new PriorityQueue<>();
-        for(int i : arr){
-            pqueue.offer(i);
-        }
-
-        int[] arr1 = new int[k];
-        for(int i = 0;i < k;i++){
-            arr1[i] = pqueue.poll();
-        }
-
-        return arr1;
-    }
-    //方法二 只建 k 大小的堆，以防止数组大小过大
 //    public int[] smallestK(int[] arr, int k) {
+//        PriorityQueue<Integer> pqueue = new PriorityQueue<>();
+//        for(int i : arr){
+//            pqueue.offer(i);
+//        }
 //
+//        int[] arr1 = new int[k];
+//        for(int i = 0;i < k;i++){
+//            arr1[i] = pqueue.poll();
+//        }
+//
+//        return arr1;
 //    }
+    //方法二 只建 k 大小的堆，以防止数组大小过大
+    static class ReversedComparator implements Comparator<Integer> {
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            return o2 - o1;
+        }
+    }
+
+    public int[] smallestK(int[] arr, int k) {
+        if (k == 0) {
+            return new int[0];
+        }
+
+        // 1. 要找出最小的 Top K 元素，需要大堆（自然顺序大的优先出队列）
+        // 2. JDK 提供的 PriorityQueue 是小堆
+        // 3. 通过重新定义 int 的顺序，即 9 小于 8 小于 7 小于 6 ...
+        ReversedComparator c = new ReversedComparator();
+        PriorityQueue<Integer> pq = new PriorityQueue(c);
+        for (int i = 0; i < k; i++) {
+            pq.offer(arr[i]);
+        }
+
+        for (int i = k; i < arr.length; i++) {
+            int top = pq.peek();
+            if (arr[i] < top) {
+                pq.poll();
+                pq.offer(arr[i]);
+            }
+        }
+
+        int[] ans = new int[k];
+        for (int i = 0; i < k; i++) {
+            ans[i] = pq.poll();
+        }
+
+        return ans;
+    }
 }
