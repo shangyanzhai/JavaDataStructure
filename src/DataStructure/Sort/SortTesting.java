@@ -35,7 +35,11 @@ public class SortTesting {
 //        Sort.selectSort(array);
 //        Sort.insertSort(array);
 //        Sort.heapSort(array);
-        Sort.quickSort(array);
+//        Sort.quickSort(array);
+        double s = System.currentTimeMillis();
+        Test.selectSort(array);
+        double e = System.currentTimeMillis();
+        System.out.println((e - s) / 1000 + "s");
         Arrays.sort(copy);
 
         if (!Arrays.equals(array, copy)) {
