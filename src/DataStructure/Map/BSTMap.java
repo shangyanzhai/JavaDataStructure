@@ -1,5 +1,14 @@
 package DataStructure.Map;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class BSTMap {
     private Node root = null;
 
@@ -62,5 +71,77 @@ public class BSTMap {
         }
 
         return null;
+    }
+
+    // 获取所有的 key
+    public Set<Long> keySet() {
+        Set<Long> keySet = new TreeSet<>();
+        // 搜索树情况下，使用中序获取
+        Deque<Node> stack = new LinkedList<>();
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            Node top = stack.pop();
+            // 处理 top 就是中序遍历
+            keySet.add(top.key);
+            cur = top.right;
+        }
+
+        return keySet;
+    }
+
+    // 索取所有的 value
+    public Collection<String> values() {
+        List<String> ans = new ArrayList<>();
+
+        // 搜索树情况下，使用中序获取
+        Deque<Node> stack = new LinkedList<>();
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            Node top = stack.pop();
+            // 处理 top 就是中序遍历
+            ans.add(top.value);
+            cur = top.right;
+        }
+
+        return ans;
+    }
+
+    // 获取所有的 key-value
+    // 首先外部是一个 Set，因为 key-value 组合不会重复
+    // 表示 key-value 组合使用 Map.Entry
+    // Map.Entry<Long, String>: key-value 组合，key 是 Long 类型，value 是 String 类型
+    public Set<Map.Entry<Long, String>> entrySet() {
+        // 把 Node 作为 TreeSet 的元素类型，问 Node 是否具备大小比较能力
+        Set<Map.Entry<Long, String>> ans = new TreeSet<>();
+
+        // 搜索树情况下，使用中序获取
+        Deque<Node> stack = new LinkedList<>();
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            Node top = stack.pop();
+            // 处理 top 就是中序遍历
+            ans.add(top);
+            cur = top.right;
+        }
+
+        return ans;
     }
 }
