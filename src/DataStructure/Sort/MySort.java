@@ -25,6 +25,24 @@ public class MySort {
         }
     }
 
+    // 对 array 的 [fromIndex, toIndex)
+    // fromIndex 和 toIndex 一定合法
+    public static void bubbleSortRange(long[] arr, int fromIndex, int toIndex) {
+        if(arr == null || arr.length == 0 || arr.length == 1){
+            return;
+        }
+        //无序区间 有序区间
+        //[fromIndex , i)[i ,toIndex)
+
+        for(int i = toIndex;i >= fromIndex;i--){
+            for(int j = fromIndex;j < i - 1;j++){
+                if(arr[j] > arr[j + 1]){
+                    swap(arr,j,j+ 1);
+                }
+            }
+        }
+    }
+
     //选择排序 每一次遍历以后都将最大的数移到最后面的有序区间前面
     //无序区间 有序区间
     //[0,size - i)[size - i,size)
@@ -141,7 +159,7 @@ public class MySort {
     public static void main(String[] args) {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
         double s = System.currentTimeMillis();
-        insertSortRange(arr,0,12);
+        bubbleSortRange(arr,0,12);
         double e = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         System.out.println((e - s) / 1000 + "s");
