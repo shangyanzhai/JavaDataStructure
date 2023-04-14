@@ -1,6 +1,8 @@
 package DataStructure.Sort;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class MySort {
     //冒泡排序
@@ -150,6 +152,42 @@ public class MySort {
             arr[j + 1] = arrangedNum;
         }
     }
+
+    //堆排序
+    public static void heapSort(long[] arr) {
+        if(arr == null || arr.length == 0 || arr.length == 1){
+            return;
+        }
+        //首先先对数组进行建堆操作
+        //建立一个大堆
+        //按照大堆的规范对数组进行调整
+        int size = arr.length;
+        for(int i = (size - 1) / 2 ;i >= 0;i--){
+            shiftDown(arr,i);
+        }
+        //然后每一次都去取堆顶元素，将其放置到最后的有序区间内，并对堆顶元素进行向下调整
+        //[无序区间][有序区间]
+        //[0,i + 1)[i + 1,size)
+        for(int i = size - 1;i >= 0;i--){
+            swap(arr,0,i);
+            shiftDown(arr,0);
+        }
+    }
+    public static void shiftDown(long[] arr,int index){
+        int leftIdx = index * 2 + 1;
+        int rightIdx = index * 2 + 2;
+        if(leftIdx >= arr.length){//代表该位置为叶子结点
+            return;
+        }
+        int maxIdx = leftIdx;
+        if(rightIdx < arr.length && arr[rightIdx] > arr[leftIdx]){
+            maxIdx = rightIdx;
+        }
+        if(arr[maxIdx] > arr[index]){
+            swap(arr,maxIdx,index);
+            shiftDown(arr,maxIdx);
+        }
+    }
     public static void swap(long[] arr,int a ,int b){
         long temp = arr[a];
         arr[a] = arr[b];
@@ -159,7 +197,7 @@ public class MySort {
     public static void main(String[] args) {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
         double s = System.currentTimeMillis();
-        bubbleSortRange(arr,0,12);
+        heapSort(arr);
         double e = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         System.out.println((e - s) / 1000 + "s");

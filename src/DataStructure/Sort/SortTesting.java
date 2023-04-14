@@ -37,9 +37,10 @@ public class SortTesting {
 //        Sort.heapSort(array);
 //        Sort.quickSort(array);
         double s = System.currentTimeMillis();
-        MySort.bubbleSortRange(array,0,array.length);
+        MySort.heapSort(array);
         double e = System.currentTimeMillis();
         System.out.println((e - s) / 1000 + "s");
+//        System.out.println(Arrays.toString(array));
         Arrays.sort(copy);
 
         if (!Arrays.equals(array, copy)) {
