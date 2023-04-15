@@ -203,9 +203,9 @@ public class Sort {
 
         // pivotIdx 是 partition 之后，pivot 所在的下标
 //        int pivotIdx = partition3(array, fromIdx, toIdx);
-        int[] borderIdxes = partition4(array, fromIdx, toIdx);
-        int ltIdx = borderIdxes[0];
-        int gtIdx = borderIdxes[1];
+        int[] borderIdx = partition4(array, fromIdx, toIdx);
+        int ltIdx = borderIdx[0];
+        int gtIdx = borderIdx[1];
 
         // 整个 [fromIdx, toIdx] 的区间被 pivot 分成两部分
         // 左边: [fromIdx, pivotIdx - 1]
@@ -329,7 +329,7 @@ public class Sort {
     // [fromIdx, midIdx)   有序
     // [midIdx, toIdx)     有序
     private static void merge(long[] array, int fromIdx, int midIdx, int toIdx) {
-        // 顺序表合并有序区间需要额外空间
+        // 顺序表合并 有序区间 需要额外空间
         int size = toIdx - fromIdx;
         long[] extra = new long[size];  // 合并期间临时用到
         // 一共需要几个下标变量 3 个  左边区间、右边区间、额外区间
