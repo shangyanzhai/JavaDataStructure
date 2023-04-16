@@ -163,29 +163,29 @@ public class MySort {
         //按照大堆的规范对数组进行调整
         int size = arr.length;
         for(int i = (size - 1) / 2 ;i >= 0;i--){
-            shiftDown(arr,i);
+            shiftDown(arr,i,size);
         }
         //然后每一次都去取堆顶元素，将其放置到最后的有序区间内，并对堆顶元素进行向下调整
         //[无序区间][有序区间]
         //[0,i + 1)[i + 1,size)
         for(int i = size - 1;i >= 0;i--){
             swap(arr,0,i);
-            shiftDown(arr,0);
+            shiftDown(arr,0,i - 1);
         }
     }
-    public static void shiftDown(long[] arr,int index){
+    public static void shiftDown(long[] arr,int index,int size){
         int leftIdx = index * 2 + 1;
         int rightIdx = index * 2 + 2;
-        if(leftIdx >= arr.length){//代表该位置为叶子结点
+        if(leftIdx >= size){//代表该位置为叶子结点
             return;
         }
         int maxIdx = leftIdx;
-        if(rightIdx < arr.length && arr[rightIdx] > arr[leftIdx]){
+        if(rightIdx < size && arr[rightIdx] > arr[leftIdx]){
             maxIdx = rightIdx;
         }
         if(arr[maxIdx] > arr[index]){
             swap(arr,maxIdx,index);
-            shiftDown(arr,maxIdx);
+            shiftDown(arr,maxIdx,size);
         }
     }
     public static void swap(long[] arr,int a ,int b){
