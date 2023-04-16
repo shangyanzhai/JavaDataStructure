@@ -438,7 +438,7 @@ public class BinaryTreeOperations {
     }
 
     /**
-     * 判断两棵二叉树是否镜像
+     * 判断两棵 二叉树 是否镜像
      * @param p
      * @param q
      * @return
