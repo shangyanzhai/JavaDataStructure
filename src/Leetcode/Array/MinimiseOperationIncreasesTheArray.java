@@ -1,6 +1,6 @@
 package Leetcode.Array;
 
-public class MinimiseOperationIncresesTheArray {
+public class MinimiseOperationIncreasesTheArray {
     /**1827 最少操作使数组递增
      * 作者：LeetCode-Solution
      *     链接：https://leetcode.cn/problems/minimum-operations-to-make-the-array-increasing/solution/zui-shao-cao-zuo-shi-shu-zu-di-zeng-by-l-sjr6/

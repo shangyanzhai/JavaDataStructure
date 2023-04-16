@@ -51,11 +51,11 @@ public class ValidParentheses {
     public boolean isValid(String s) {
         Deque<Character> stack = new LinkedList<>();
 
-        char[] sarray = s.toCharArray();
+        char[] sArray = s.toCharArray();
 
-        for(int i = 0; i < sarray.length;i++){
-            if(sarray[i] == '(' || sarray[i] == '{' || sarray[i] == '['){
-                stack.push(sarray[i]);
+        for(int i = 0; i < sArray.length;i++){
+            if(sArray[i] == '(' || sArray[i] == '{' || sArray[i] == '['){
+                stack.push(sArray[i]);
             }else{//此时代表值不为左括号，则需要考虑几种情况
                 //第一种情况 栈中为空 此时遍历的值为右括号，则此时直接返回false
                 //第二种情况 栈中取的值与实际遍历的值 并不匹配，则返回 false
@@ -65,7 +65,7 @@ public class ValidParentheses {
                     return false;
                 }
                 char left = stack.pop();
-                if(ExpectedReturn(sarray[i]) != left){
+                if(ExpectedReturn(sArray[i]) != left){
                     return false;
                 }
 

@@ -24,14 +24,14 @@ import java.util.*;
 public class TopKOfTheSmallest {
     //方法一 直接建 arr.length 大小的堆
 //    public int[] smallestK(int[] arr, int k) {
-//        PriorityQueue<Integer> pqueue = new PriorityQueue<>();
+//        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
 //        for(int i : arr){
-//            pqueue.offer(i);
+//            pQueue.offer(i);
 //        }
 //
 //        int[] arr1 = new int[k];
 //        for(int i = 0;i < k;i++){
-//            arr1[i] = pqueue.poll();
+//            arr1[i] = pQueue.poll();
 //        }
 //
 //        return arr1;
@@ -50,7 +50,7 @@ public class TopKOfTheSmallest {
         }
 
         // 1. 要找出最小的 Top K 元素，需要大堆（自然顺序大的优先出队列）
-        // 2. JDK 提供的 PriorityQueue 是小堆
+        // 2. JDK 提供的 PriorityQueue 是 小堆
         // 3. 通过重新定义 int 的顺序，即 9 小于 8 小于 7 小于 6 ...
         ReversedComparator c = new ReversedComparator();
         PriorityQueue<Integer> pq = new PriorityQueue(c);

@@ -65,11 +65,11 @@ public class InorderAndPostorderConStructBinaryTree {
         //中序遍历和后序遍历，首先先切下标
         //由后序遍历的最后一个数，得到根结点 ，再然后在中序遍历中寻找
         //设，根结点再中序遍历的 leftSize 位置
-        //则左子树有 leftSzie - 1
+        //则左子树有 leftSize - 1
         //左子树的中序遍历就是 [0,0 + leftSize)
         //左子树的后序遍历就是 [0,0 + leftSize)
-        //右子树的中序遍历就是 [leftSzie + 1,size)
-        //右子树的后序遍历就是 [leftSzie,size - 1)
+        //右子树的中序遍历就是 [leftSize + 1,size)
+        //右子树的后序遍历就是 [leftSize,size - 1)
         TreeNode root = new TreeNode();
         //首先先找根结点
         int num = postorlist.get(postorlist.size() - 1);
@@ -77,13 +77,13 @@ public class InorderAndPostorderConStructBinaryTree {
         int leftSize = inorderlist.indexOf(num);
 
         //切割左子树的中序 和 后序遍历
-        List<Integer> leftin = inorderlist.subList(0,leftSize);
-        List<Integer> leftpost = postorlist.subList(0,leftSize);
-        root.left = listToTreeNode(leftin,leftpost);
+        List<Integer> leftIn = inorderlist.subList(0,leftSize);
+        List<Integer> leftPost = postorlist.subList(0,leftSize);
+        root.left = listToTreeNode(leftIn,leftPost);
         //切割右子树的中序 和 后序遍历
-        List<Integer> rightin = inorderlist.subList(leftSize + 1,inorderlist.size());
-        List<Integer> rightpost = postorlist.subList(leftSize ,inorderlist.size() - 1);
-        root.right = listToTreeNode(rightin ,rightpost);
+        List<Integer> rightIn = inorderlist.subList(leftSize + 1,inorderlist.size());
+        List<Integer> rightPost = postorlist.subList(leftSize ,inorderlist.size() - 1);
+        root.right = listToTreeNode(rightIn ,rightPost);
 
         return root;
     }

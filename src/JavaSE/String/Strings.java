@@ -57,7 +57,7 @@ public class Strings {
         System.out.println((str1 == str2));
         //2.通过equals方法比较两个字符串的内容是否相等（大小写敏感），返回布尔值
         System.out.println(str1.equals(str4));
-        //3.通过equalslgnoreCase方法比较两个字符串的内容是否相等（大小写不敏感），返回布尔值
+        //3.通过 equalsIgnoreCase 方法比较两个字符串的内容是否相等（大小写不敏感），返回布尔值
         System.out.println(str1.equalsIgnoreCase(str4));
         //4.通过compareTo方法来比较两个字符串对象的大小关系，返回int
         //按字符串字典序大小比较，若出现不想等的字符，直接返回这两个字符的大小差值（字符编码差值）
@@ -76,11 +76,11 @@ public class Strings {
 //        System.out.println(str6.charAt(20));
         //问题：写一个方法，判断用户输入的字符串是否由纯数字组成，是返回true，不是返回false
         String str7 = "123456";
-        System.out.println(stringnumber(str7));
-        System.out.println(stringnumber(str1));
+        System.out.println(stringIsNumber(str7));
+        System.out.println(stringIsNumber(str1));
 
         //问题：将字符串转化为整型，超出整型最大值返回0，字符串中除了第一位出现非数字字符返回0，字符串第一位除了'+'，'—'以外的非数字字符返回0，null或长度为0返回0
-        System.out.println(stringint(str7));
+        System.out.println(stringToInt(str7));
 
         //查找字符/字符串
         String str8 = "hello world";
@@ -194,10 +194,10 @@ public class Strings {
          * 7.字符串的截取方法
          */
         strr1 = "hello world 123 世界";
-        //从指定索引截取到结尾,从指定索引位置开始截取字符出啊结尾，保留开始字符 JavaSE.String substring(int beginlndex)
+        //从指定索引截取到结尾,从指定索引位置开始截取字符出啊结尾，保留开始字符 JavaSE.String substring(int beginIndex)
         System.out.println(strr1);
         System.out.println(strr1.substring(3));
-        //从指定索引截取到结尾，牵扯到区间的，都是左闭右开，不保留结束字符 JavaSE.String substring(int beginlndex，int endlndex)
+        //从指定索引截取到结尾，牵扯到区间的，都是左闭右开，不保留结束字符 JavaSE.String substring(int beginIndex，int endIndex)
         System.out.println(strr1);
         System.out.println(strr1.substring(3,12));
         //问题：如何实现，传入一个字符串（只包含字母），进行首字母大写操作
@@ -213,7 +213,7 @@ public class Strings {
         System.out.println(strr5.trim());
     }
     //问题：写一个方法，判断用户输入的字符串是否由纯数字组成，是返回true，不是返回false
-    public static boolean stringnumber(String str){
+    public static boolean stringIsNumber(String str){
         boolean isEmpty = true;
         //判断边界条件
         if(str == null || str.length() == 0){
@@ -224,7 +224,7 @@ public class Strings {
 //            if(str.charAt(i) < '0' || str.charAt(i) > '9'){
 //                isEmpty = false;
 //            }
-            //JDK中的char的包装类Charcter中有一个静态方法，判断字符是否是数字字符
+            //JDK中的char的包装类Character中有一个静态方法，判断字符是否是数字字符
             if(!Character.isDigit(str.charAt(i))){
                 isEmpty = false;
             }
@@ -232,7 +232,7 @@ public class Strings {
         return isEmpty;
     }
     //问题：将字符串转化为整型，超出整型最大值返回0，字符串中除了第一位出现非数字字符返回0，字符串第一位除了'+'，'—'以外的非数字字符返回0，null或长度为0返回0
-    public static int stringint(String str){
+    public static int stringToInt(String str){
         //边界条件判断
         if(str == null || str.length() == 0){
             return 0;

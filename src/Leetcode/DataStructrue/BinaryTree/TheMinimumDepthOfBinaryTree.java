@@ -97,15 +97,15 @@ public class TheMinimumDepthOfBinaryTree {
             return 0;
         }
         if(root.left != null && root.right != null ){
-            int leftnum = 1;
-            int rightnum = 1;
+            int leftNum = 1;
+            int rightNum = 1;
             if(root.left != null){
-                leftnum = 1 + Depth(root.left);
+                leftNum = 1 + Depth(root.left);
             }
             if(root.right != null){
-                rightnum = 1 + Depth(root.right);
+                rightNum = 1 + Depth(root.right);
             }
-            return leftnum > rightnum ? rightnum : leftnum;
+            return leftNum > rightNum ? rightNum : leftNum;
         }else if(root.left != null){
             return 1 + Depth(root.left);
         }else{

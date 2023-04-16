@@ -29,11 +29,11 @@ public class StringBuilderBuffer {
 
         StringBuilder str4 = new StringBuilder(str3);
         str4.append("gh");//调用append方法在当前sb对象的后面追加任何数据类型
-        System.out.println(str4);//abcdefgh
+        System.out.println(str4);// abcdefgh
         StringBuffer str5 = new StringBuffer(str4);
         str5.reverse();//反转字符串，StringBuffer类中的
-        System.out.println(str5);//hgfedcba
+        System.out.println(str5);// hgfedcba
         str5.delete(1,3);//删除【start，end）区间内的字符
-        System.out.println(str5);//hedcba
+        System.out.println(str5);// hedcba
     }
 }

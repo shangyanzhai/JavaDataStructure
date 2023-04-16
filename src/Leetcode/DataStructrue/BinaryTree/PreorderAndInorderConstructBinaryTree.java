@@ -54,11 +54,11 @@ public class PreorderAndInorderConstructBinaryTree {
         //首先，由前序遍历可以知道二叉树的头节点是什么
         //在根据中序遍历，可以知查到头节点的位置，根据他的位置可以知道左子树的结点个数，与右子树的结点个数
         //但是，这有个前提，即头节点为独一无二的，只有如此才能保证在中序遍历中才能清楚左右子树的结点个数
-        //设头节点在左子树中的leftval位置
-        //左子树 中序遍历 [0,leftval - 1]
-        //左子树 先序遍历 [1,leftval]
-        //右子树 中序遍历 [leftval + 1,preorder.length]
-        //右子树 先序遍历 [leftval + 1,preorder.length]
+        //设头节点在左子树中的leftVal位置
+        //左子树 中序遍历 [0,leftVal - 1]
+        //左子树 先序遍历 [1,leftVal]
+        //右子树 中序遍历 [leftVal + 1,preorder.length]
+        //右子树 先序遍历 [leftVal + 1,preorder.length]
         TreeNode root = new TreeNode();
         if(preorderlist.isEmpty()){
             return null;
@@ -77,11 +77,11 @@ public class PreorderAndInorderConstructBinaryTree {
         //首先，由前序遍历可以知道二叉树的头节点是什么
         //在根据中序遍历，可以知查到头节点的位置，根据他的位置可以知道左子树的结点个数，与右子树的结点个数
         //但是，这有个前提，即头节点为独一无二的，只有如此才能保证在中序遍历中才能清楚左右子树的结点个数
-        //设头节点在左子树中的leftval位置
-        //左子树 中序遍历 [0,leftval - 1]
-        //左子树 先序遍历 [1,leftval]
-        //右子树 中序遍历 [leftval + 1,preorder.length]
-        //右子树 先序遍历 [leftval + 1,preorder.length]
+        //设头节点在左子树中的leftVal位置
+        //左子树 中序遍历 [0,leftVal - 1]
+        //左子树 先序遍历 [1,leftVal]
+        //右子树 中序遍历 [leftVal + 1,preorder.length]
+        //右子树 先序遍历 [leftVal + 1,preorder.length]
         TreeNode root = new TreeNode();
         List<Integer> preorderlist = new ArrayList<>();
         List<Integer> inorderlist = new ArrayList<>();

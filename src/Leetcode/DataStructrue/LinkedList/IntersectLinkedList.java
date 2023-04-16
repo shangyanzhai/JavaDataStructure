@@ -92,16 +92,16 @@ public class IntersectLinkedList {
         return num;
     }
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int headAsize = sizeof(headA);
-        int headBsize = sizeof(headB);
+        int headASize = sizeof(headA);
+        int headBSize = sizeof(headB);
 
-        if(headAsize > headBsize){
-            int  num = headAsize - headBsize;
+        if(headASize > headBSize){
+            int  num = headASize - headBSize;
             for(int i = 0;i < num;i++){
                 headA = headA.next;
             }
-        }else if(headAsize < headBsize){
-            int  num = headBsize - headAsize;
+        }else if(headASize < headBSize){
+            int  num = headBSize - headASize;
             for(int i = 0;i < num;i++){
                 headB = headB.next;
             }

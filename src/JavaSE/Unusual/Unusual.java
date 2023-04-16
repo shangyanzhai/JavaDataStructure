@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 异常
  */
-public class Unuasual {
+public class Unusual {
         public static void main(String[] args) {
             System.out.println("异常发生前代码");
             //{
@@ -27,11 +27,11 @@ public class Unuasual {
             }catch(ArithmeticException e) {//catch代码块只会捕获对应的异常，若try中出现的异常不是当前catch对应的异常，程序还是会中断
                 System.out.println("算数异常发生了");
             }
-            System.out.println("异常发生之后的代码");//只有当异常被正确处理才会执行到
+            System.out.println("异常发生之后的代码");//只有当异常被正确处理后 才会执行到
 
             System.out.println("异常发生前代码");
             try{//若某代码中有可能产生多个异常时，推荐还是使用多个catch代码块来捕获不同的异常类型
-                //异常的捕获只可能出现一次
+                //异常地捕获只可能出现一次
                 String str = null;
                 System.out.println(str.length());//空指针异常（NPE异常）
 //            int[] arr = {'a','b','c'};
