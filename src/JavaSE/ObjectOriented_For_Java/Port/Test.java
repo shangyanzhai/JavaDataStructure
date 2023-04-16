@@ -11,16 +11,16 @@ public class Test {
          */
         public static void sort(Comparable[] arr){
             for (int i = 0; i < arr.length - 1; i++) {
-                boolean isSwaped = false;//引入标识位
+                boolean isSwapped = false;//引入标识位
                 for (int j = 0; j < arr.length - i -1; j++) {
                     if(arr[j].compareTo(arr[j + 1]) > 0){
                         Comparable tmp = arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
-                        isSwaped = true;
+                        isSwapped = true;
                     }
                 }
-                if(!isSwaped){
+                if(!isSwapped){
                     break;
                 }
             }

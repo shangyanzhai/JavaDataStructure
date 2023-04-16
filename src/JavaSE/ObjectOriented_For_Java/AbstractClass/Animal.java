@@ -6,9 +6,9 @@ package JavaSE.ObjectOriented_For_Java.AbstractClass;
 //抽象类无法直接实例化对象，但可以通过子类的向上转型进行实例化
 //有抽象方法的类都是抽象类，但抽象类可以没有抽象方法，抽象类可以拥有【0-n】个抽象方法
 //抽象方法没有方法体，但没有方法体并不一定是抽象方法
-//子类继承抽象类，如果子类是普通类，则需要覆写所有的抽象的方法
-//abstract和final，private冲突，abstract强制抽象方法重写，但是pravite则只有类中可见，final修饰的方法则不能被重写，与abstract冲突
-//所有final，pravite，abstract不能同时出现
+//子类继承抽象类，如果子类是 普通类，则需要覆写所有的抽象的方法
+//abstract和final，private冲突，abstract强制抽象方法重写，但是private则只有类中可见，final修饰的方法则不能被重写，与abstract冲突
+//所有final，private，abstract不能同时出现
 public abstract class Animal {
     protected char name;
     protected int age;
