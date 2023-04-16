@@ -73,13 +73,13 @@ public class MySort {
         }
         int size = arr.length;
         for(int i = 0;i < size;i++){
-            int minindex = i;
+            int minIndex = i;
             for(int j = i + 1;j < size;j++){
-                if(arr[j] < arr[minindex]){
-                    minindex = j;
+                if(arr[j] < arr[minIndex]){
+                    minIndex = j;
                 }
             }
-            swap(arr,minindex,i);
+            swap(arr,minIndex,i);
         }
     }
 
@@ -94,23 +94,23 @@ public class MySort {
         int left = 0;
         int right = size;
         while(right - left > 1){
-            int minindex = left;
-            int maxindex = right - 1;
+            int minIndex = left;
+            int maxIndex = right - 1;
             for(int i = left;i < right;i++){
-                if(arr[i] > arr[maxindex]){
-                    maxindex = i;
+                if(arr[i] > arr[maxIndex]){
+                    maxIndex = i;
                 }
-                if(arr[i] < arr[minindex]){
-                    minindex = i;
+                if(arr[i] < arr[minIndex]){
+                    minIndex = i;
                 }
             }
             //走到这一步则代表找到了最大和最小位置
             //但是存在一种可能，即当交换完最小，可能会出现最大的位置改变，则需要提前记录
-            swap(arr,left,minindex);
-            if(maxindex == left){
-                maxindex = minindex;
+            swap(arr,left,minIndex);
+            if(maxIndex == left){
+                maxIndex = minIndex;
             }
-            swap(arr,right - 1,maxindex);
+            swap(arr,right - 1,maxIndex);
             left++;
             right--;
         }

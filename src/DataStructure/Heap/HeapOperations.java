@@ -4,7 +4,7 @@ package DataStructure.Heap;
  * 解决：动态地、在一组元素中找最值的场景。
  * 最大堆（用来找最大值）/最小堆（用来找最小值）
  * 定义（最大堆的定义）：
- * 1. 逻辑上是一棵完全二叉树。
+ * 1. 逻辑上是一棵完全二叉树 。
  * 2. 物理上是一个数组。
  * 3. 树中的任意一个结点，只要有孩子，都保证 parent 的值 >= 左右还两个孩子的值。
  */
@@ -26,30 +26,30 @@ public class HeapOperations {
             // 1.1 只要该位置已经是叶子了，就不需要做处理
             //     逻辑：叶子 <-> 一个孩子都没有 <-> 没有左孩子
             //     物理上是数组：左孩子的下标越界 <-> 没有左孩子
-            int leftindex = index * 2 + 1;
-            if (leftindex >= size) {
+            int leftIndex = index * 2 + 1;
+            if (leftIndex >= size) {
                 //代表该结点是叶子结点
                 return;
             }
             //如果最大的是左孩子
             //不成立的情况 ：存在右孩子，且右孩子大于左孩子
             //此时至少存在左孩子
-            //左右孩子进行比较，选择其中大的
-            int maxindex = leftindex;
-            if (leftindex + 1 < size && array[leftindex + 1] > array[leftindex]) {
-                maxindex = leftindex + 1;
+            // 左右 孩子进行比较，选择其中大的
+            int maxIndex = leftIndex;
+            if (leftIndex + 1 < size && array[leftIndex + 1] > array[leftIndex]) {
+                maxIndex = leftIndex + 1;
             }
-            if (array[index] >= array[maxindex]) {
+            if (array[index] >= array[maxIndex]) {
                 //说明满足堆的性质
                 return;
             }
 
             long t = array[index];
-            array[index] = array[maxindex];
-            array[maxindex] = t;
+            array[index] = array[maxIndex];
+            array[maxIndex] = t;
 
             // 交换之后不算完
-            index = maxindex;
+            index = maxIndex;
         }
     }
     // O(log(n))
