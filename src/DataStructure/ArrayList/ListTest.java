@@ -36,7 +36,7 @@ public class ListTest{
         System.out.println(list.lastIndexOf(500));//从后往前
 
         System.out.println(list);
-        list.remove(0);//删除0位置的数
+        list.remove(0);//删除 0 位置的数
         System.out.println(list);
 
         System.out.println(list.subList(1, 3));//切出区间为[1,3)的子集

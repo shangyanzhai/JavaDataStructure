@@ -6,7 +6,7 @@ package DataStructure.ArrayList;
  * 2.每个元素都有一个唯一的位置相关联 --下标[0,size)
  *
  * void clear() //清空
- * List<E>subList(int fromindex,int toIndex)//截取部分list
+ * List<E>subList(int fromIndex,int toIndex)//截取部分list
  */
 
 /**
