@@ -190,9 +190,37 @@ public class MySort {
     }
 
     //希尔排序
-    public static void shellSort(long[] array) {
+    //时间复杂度是 O(n^ 1.3)
+    public static void shellSort(long[] arr) {
+        int shellNumber = arr.length / 2;
+        while(true){
+            shellInsertSort(arr,shellNumber);
+            if(shellNumber == 1){
+                return;
+            }
+            shellNumber = shellNumber / 2;
+        }
+    }
+    //对数组arr进行插入排序，根据分的数字每间隔一个进行排序
+    //所以，对于插入排序的数组，前shellNumber是不需要排序的
+    //只需要从下标为shellNumber的数开始排序，一直排序到最后一个即可
+    private static void shellInsertSort(long[] arr,int shellNumber){
+        for(int i = shellNumber;i < arr.length;i++){
+            long temp = arr[i];
+            int j;
+            for(j = i - shellNumber;j >= 0 && arr[j] > temp;j = j - shellNumber){
+                arr[j + shellNumber] = arr[j];
+            }
+            arr[j + shellNumber] = temp;
+        }
+    }
+
+    //快速排序
+    //对于最坏的情况，容易造成栈溢出的情况
+    public static void quickSort(long[] arr){
 
     }
+
     public static void swap(long[] arr,int a ,int b){
         long temp = arr[a];
         arr[a] = arr[b];
@@ -202,7 +230,7 @@ public class MySort {
     public static void main(String[] args) {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
         double s = System.currentTimeMillis();
-        heapSort(arr);
+        shellSort(arr);
         double e = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         System.out.println((e - s) / 1000 + "s");

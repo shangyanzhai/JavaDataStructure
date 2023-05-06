@@ -37,7 +37,7 @@ public class SortTesting {
 //        Sort.heapSort(array);
 //        Sort.quickSort(array);
         double s = System.currentTimeMillis();
-        MySort.heapSort(array);
+        MySort.shellSort(array);
         double e = System.currentTimeMillis();
         System.out.println((e - s) / 1000 + "s");
 //        System.out.println(Arrays.toString(array));
