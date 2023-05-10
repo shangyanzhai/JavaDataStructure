@@ -40,7 +40,7 @@ import java.util.Arrays;
  * 链接：https://leetcode.cn/problems/rotate-array
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class RotateArrays {
+public class 轮换数组_189 {
     public void rotate(int[] nums, int k) {
 //        if(nums == null || nums.length == 0){
 //            return;
@@ -70,7 +70,7 @@ public class RotateArrays {
         }
     }
     public static void main(String[] args) {
-        RotateArrays rot = new RotateArrays();
+        轮换数组_189 rot = new 轮换数组_189();
         int[] a = {-1,-100,3,99};
         System.out.println(Arrays.toString(a));
         rot.rotate(a,2);

@@ -48,7 +48,7 @@ import java.util.*;
  *     }
  * }
  */
-public class LayerSequenceTraversalOfBinaryTree {
+public class 二叉树的层序遍历_102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
         List<Integer> leverlist = new ArrayList<>();

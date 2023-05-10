@@ -43,7 +43,7 @@ package Leetcode.DataStructrue.LinkedList;
  */
 
 
-public class ReverseTheLinkedList {
+public class 反转链表_206 {
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){return head;}
         ListNode next = head.next;

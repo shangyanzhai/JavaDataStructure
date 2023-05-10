@@ -21,7 +21,7 @@ import java.util.*;
  * 链接：https://leetcode.cn/problems/smallest-k-lcci
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class TopKOfTheSmallest {
+public class 最小K个数_面试17_14 {
     //方法一 直接建 arr.length 大小的堆
 //    public int[] smallestK(int[] arr, int k) {
 //        PriorityQueue<Integer> pQueue = new PriorityQueue<>();

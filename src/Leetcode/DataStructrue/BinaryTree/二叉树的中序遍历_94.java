@@ -48,7 +48,7 @@ import java.util.List;
  * }
  */
 
-class MiddleOrderTraversal {
+class 二叉树的中序遍历_94 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();
         //此时，则需要判断根结点是否为空,如果根结点为空，则说明二叉树实际为空

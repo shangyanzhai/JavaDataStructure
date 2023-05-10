@@ -11,7 +11,7 @@ package NowCoder.DataStructrue.Stack;
 
 import java.util.*;
 
-public class PushPopOfTheStack {
+public class 栈的压入弹出序列 {
     private List<Integer> ArrayToList(int[] A){
         List<Integer> list = new ArrayList();
         for(int i : A){

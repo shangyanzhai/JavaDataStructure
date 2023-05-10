@@ -49,7 +49,7 @@ package Leetcode.DataStructrue.BinaryTree;
  * }
  */
 
-public class FilpTheBinaryTree {
+public class 翻转二叉树_226 {
 //    public void change(TreeNode root){
 //        if(root == null){
 //            return;

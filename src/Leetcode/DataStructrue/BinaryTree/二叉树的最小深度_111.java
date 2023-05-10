@@ -1,8 +1,5 @@
 package Leetcode.DataStructrue.BinaryTree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *  111   二叉树的最小深度
  *
@@ -50,7 +47,7 @@ import java.util.List;
  * }
  */
 
-public class TheMinimumDepthOfBinaryTree {
+public class 二叉树的最小深度_111 {
     /**
     static class TreeNodeWithLevel {
         public TreeNode node;

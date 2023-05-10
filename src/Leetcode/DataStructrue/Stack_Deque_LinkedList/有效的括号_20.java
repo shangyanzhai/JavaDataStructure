@@ -38,7 +38,7 @@ package Leetcode.DataStructrue.Stack_Deque_LinkedList;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class ValidParentheses {
+public class 有效的括号_20 {
     private char ExpectedReturn(char s){
         if(s == ')'){
             return '(';
@@ -79,7 +79,7 @@ public class ValidParentheses {
 
     public static void main(String[] args) {
         String s = "([])";
-        ValidParentheses validParentheses = new ValidParentheses();
+        有效的括号_20 validParentheses = new 有效的括号_20();
         System.out.println(validParentheses.isValid(s));
     }
 }

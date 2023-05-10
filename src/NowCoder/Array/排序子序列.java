@@ -3,6 +3,8 @@ package NowCoder.Array;
 import java.util.*;
 
 /**
+ * 排序子序列
+ *
  * 链接：https://www.nowcoder.com/questionTerminal/2d3f6ddd82da445d804c95db22dcc471
  * 来源：牛客网
  *
@@ -24,7 +26,7 @@ import java.util.*;
  * 输出
  * 2
  */
-public class SortSubSequence {
+public class 排序子序列 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {

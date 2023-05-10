@@ -1,5 +1,4 @@
 package NowCoder.Array;
-import java.util.*;
 
 /**
  *   BM97   旋转数组
@@ -48,7 +47,7 @@ import java.util.*;
  * 备注：
  * (1<=N<=100,M>=0)
  */
-public class RotatingArray {
+public class 旋转数组_BM97 {
     /**
      * 旋转数组
      * @param n int整型 数组长度

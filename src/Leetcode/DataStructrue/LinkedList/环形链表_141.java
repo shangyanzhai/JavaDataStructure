@@ -55,7 +55,7 @@ package Leetcode.DataStructrue.LinkedList;
  *     }
  * }
  */
-public class RingLinkedList {
+public class 环形链表_141 {
     public boolean hasCycle(ListNode head) {
         if(head == null){
             return false;

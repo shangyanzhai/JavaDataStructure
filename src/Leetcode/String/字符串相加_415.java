@@ -33,11 +33,11 @@ package Leetcode.String;
  * 链接：https://leetcode.cn/problems/add-strings
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class StringAdd {
+public class 字符串相加_415 {
     public static void main(String[] args) {
         String num1 = "9";
         String num2 ="0";
-        StringAdd stringAdd = new StringAdd();
+        字符串相加_415 stringAdd = new 字符串相加_415();
         System.out.println(stringAdd.addStrings(num1,num2));
     }
     public String addStrings(String num1, String num2) {

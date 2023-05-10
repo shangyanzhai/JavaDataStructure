@@ -42,7 +42,7 @@ package Leetcode.DataStructrue.LinkedList;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-public class TheMiddleNodeOfTheLinkedList {
+public class 链表的中间结点_876 {
     /*
     public int sizeof(ListNode head){
         int num = 0;

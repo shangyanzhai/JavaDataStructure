@@ -42,11 +42,11 @@ import java.util.Arrays;
  * 链接：https://leetcode.cn/problems/two-sum
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class ArraysAdd {
+public class 两数之和_1 {
     public static void main(String[] args) {
         int[] nums = {2,5,5,11};
         int target = 10;
-        ArraysAdd arraysAdd = new ArraysAdd();
+        两数之和_1 arraysAdd = new 两数之和_1();
         System.out.println(Arrays.toString(arraysAdd.twoSum(nums,target)));
     }
     public int[] twoSum(int[] nums, int target) {

@@ -51,7 +51,7 @@ package Leetcode.DataStructrue.BinaryTree;
  * }
  */
 
-public class BalancedBinaryTree {
+public class 平衡二叉树_110 {
     //  一
     public boolean isBalanced(TreeNode root) {
         if(root == null || (root.left == null && root.right == null)){

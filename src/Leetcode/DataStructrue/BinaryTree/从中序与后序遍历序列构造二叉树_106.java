@@ -48,7 +48,7 @@ import java.util.*;
  *     }
  * }
  */
-public class InorderAndPostorderConStructBinaryTree {
+public class 从中序与后序遍历序列构造二叉树_106 {
 
     public List<Integer> arrayToList(int[] array){
         List<Integer> list = new ArrayList<>();

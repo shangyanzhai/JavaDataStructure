@@ -51,7 +51,7 @@ package Leetcode.DataStructrue.BinaryTree;
  * }
  */
 
-class TheSameTree {
+class 相同的树_100 {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         TreeNode p1 = p;
         TreeNode q1 = q;

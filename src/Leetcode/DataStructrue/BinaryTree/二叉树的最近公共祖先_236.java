@@ -51,7 +51,7 @@ import java.util.*;
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class TheNearestPublicAncestorOfBinaryTrees {
+public class 二叉树的最近公共祖先_236 {
 //    public boolean isSameTree(TreeNode root,TreeNode target){
 //        if(root == null){
 //            return false;

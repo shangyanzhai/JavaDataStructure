@@ -49,7 +49,7 @@ package Leetcode.DataStructrue.BinaryTree;
  *     }
  * }
  */
-public class TheSubTreeOfAnotherTree {
+public class 另一棵数的子树_572 {
     public boolean isSame(TreeNode root,TreeNode subRoot){
         if(root == null && subRoot == null){
             return true;

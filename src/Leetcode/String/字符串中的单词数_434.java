@@ -20,10 +20,10 @@ import java.util.Arrays;
  * 链接：https://leetcode.cn/problems/number-of-segments-in-a-string
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class StringNumber {
+public class 字符串中的单词数_434 {
     public static void main(String[] args) throws NoSuchMethodException {
         String str = new String("Hello, my  name is John");
-        StringNumber str1 = new StringNumber();
+        字符串中的单词数_434 str1 = new 字符串中的单词数_434();
         System.out.println(str1.countSegments(str));
     }
     public int countSegments(String s){

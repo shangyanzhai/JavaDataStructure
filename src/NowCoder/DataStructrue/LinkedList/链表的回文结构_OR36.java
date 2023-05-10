@@ -16,7 +16,7 @@ package NowCoder.DataStructrue.LinkedList;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class PalindromeList {
+public class 链表的回文结构_OR36 {
     public int sizeof(ListNode head){
         int num = 0;
 
@@ -78,7 +78,7 @@ public class PalindromeList {
 //        ListNode list2 = new ListNode(2,list1);
 ////        ListNode list3 = new ListNode(2,list2);
 //        ListNode list = new ListNode(3,list2);//{1,2,2,1}
-        PalindromeList palindromeList = new PalindromeList();
+        链表的回文结构_OR36 palindromeList = new 链表的回文结构_OR36();
         System.out.println(palindromeList.chkPalindrome(list1));
     }
 }

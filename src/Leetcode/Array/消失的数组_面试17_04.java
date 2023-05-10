@@ -1,6 +1,7 @@
 package Leetcode.Array;
 
-/**面试题17.04
+/**
+ * 面试题17.04  消失的数字
  * 数组nums包含从0到n的所有整数，但其中缺了一个。请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？
  *
  * 注意：本题相对书上原题稍作改动
@@ -20,7 +21,7 @@ package Leetcode.Array;
  * 链接：https://leetcode.cn/problems/missing-number-lcci
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class DisappearedNumbers {
+public class 消失的数组_面试17_04 {
     public int missingNumber(int[] nums) {
         int temp = 0;
         for(int i = 1;i <= nums.length;i++){
@@ -34,7 +35,7 @@ public class DisappearedNumbers {
 
     public static void main(String[] args) {
         int[] a = {9,6,4,2,3,5,7,0,1};
-        DisappearedNumbers dis = new DisappearedNumbers();
+        消失的数组_面试17_04 dis = new 消失的数组_面试17_04();
         System.out.println(dis.missingNumber(a));
     }
 }

@@ -67,7 +67,7 @@ package Leetcode.DataStructrue.Stack_Deque_LinkedList;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class ReversePolishExpressionEvaluation {
+public class 逆波兰表达式求值_150 {
     private boolean isMathematicalOperators(String s){
         return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/");
     }

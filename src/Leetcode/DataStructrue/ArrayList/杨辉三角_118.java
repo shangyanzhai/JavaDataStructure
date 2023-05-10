@@ -28,7 +28,7 @@ package Leetcode.DataStructrue.ArrayList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class YHtriangle {
+public class 杨辉三角_118 {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> list = new ArrayList<>();
         List<Integer> row = new ArrayList<>();

@@ -43,7 +43,7 @@ package Leetcode.DataStructrue.BinaryTree;
  *     }
  * }
  */
-public class SymmetricalBinaryTree {
+public class 对称二叉树_101 {
     public boolean isSymmetric(TreeNode root) {
         if(root == null)return true;
         return isTrue(root.left,root.right);

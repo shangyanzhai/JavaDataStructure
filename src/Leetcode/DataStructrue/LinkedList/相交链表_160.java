@@ -83,7 +83,7 @@ package Leetcode.DataStructrue.LinkedList;
  *     }
  * }
  */
-public class IntersectLinkedList {
+public class 相交链表_160 {
     public int sizeof(ListNode head){
         int num = 0;
         for(ListNode cur = head; cur != null;cur = cur.next){

@@ -35,12 +35,10 @@ import java.util.*;
  */
 
 
-import jdk.nashorn.internal.ir.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostOrderTraversal {
+public class 二叉树的后序遍历_145 {
     //递归
     // public List<Integer> postorderTraversal(TreeNode root) {
     //     //后序遍历 ： 先遍历左子树，再遍历右子树 ，最后再遍历根结点
@@ -108,7 +106,7 @@ public class PostOrderTraversal {
 
     public static void main(String[] args) {
         TreeNode root = buildTree();
-        PostOrderTraversal postOrderTraversal = new PostOrderTraversal();
+        二叉树的后序遍历_145 postOrderTraversal = new 二叉树的后序遍历_145();
         postOrderTraversal.postorderTraversal(root);
 
     }

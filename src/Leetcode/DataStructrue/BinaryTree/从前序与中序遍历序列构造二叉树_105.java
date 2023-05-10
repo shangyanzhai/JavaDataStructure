@@ -49,7 +49,7 @@ import java.util.*;
  *     }
  * }
  */
-public class PreorderAndInorderConstructBinaryTree {
+public class 从前序与中序遍历序列构造二叉树_105 {
     public TreeNode ListTobuildTree(List<Integer> preorderlist, List<Integer> inorderlist){
         //首先，由前序遍历可以知道二叉树的头节点是什么
         //在根据中序遍历，可以知查到头节点的位置，根据他的位置可以知道左子树的结点个数，与右子树的结点个数
