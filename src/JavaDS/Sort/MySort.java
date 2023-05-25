@@ -290,6 +290,8 @@ public class MySort {
                 leIdx++;
             }
 
+            swap(arr,leIdx,geIdx);
+
             while(geIdx > leIdx && arr[geIdx] >= pivot){
                 geIdx--;
             }
@@ -297,7 +299,6 @@ public class MySort {
             swap(arr,leIdx,geIdx);
         }
 
-        swap(arr,leIdx,toIdx);
         return leIdx;
     }
 
