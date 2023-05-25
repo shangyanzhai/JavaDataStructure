@@ -247,8 +247,39 @@ public class MySort {
      * @param toIdx
      * @return
      */
-    private static int partition(long[] arr,int fromIdx,int toIdx){
+    private static int partition1(long[] arr,int fromIdx,int toIdx){
          //此时将右边的值为pivot
+        long pivot = arr[toIdx];
+        int leIdx = fromIdx;
+        int geIdx = toIdx;
+
+        while(geIdx > leIdx){
+            //因为基准值是最右边的，所以此时我应该先动左边
+            while(geIdx > leIdx && arr[leIdx] <= pivot){
+                leIdx++;
+            }
+
+            while(geIdx > leIdx && arr[geIdx] >= pivot){
+                geIdx--;
+            }
+
+            swap(arr,leIdx,geIdx);
+        }
+
+        swap(arr,leIdx,toIdx);
+        return leIdx;
+    }
+
+    /**
+     * 2. 挖坑法
+     * 以数组最右边的那个为pivot（基准值），所以基准值在最右边的话，应该先动左边。否则 { ... 1 2 3 4 5 ... } 这种情况处理是错误的。
+     * @param arr
+     * @param fromIdx
+     * @param toIdx
+     * @return
+     */
+    private static int partition(long[] arr,int fromIdx,int toIdx){
+        //此时将右边的值为pivot
         long pivot = arr[toIdx];
         int leIdx = fromIdx;
         int geIdx = toIdx;
