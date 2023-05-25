@@ -215,8 +215,59 @@ public class MySort {
 
     //快速排序
     //对于最坏的情况，容易造成栈溢出的情况
+    //核心思想：
+    //1. 在无序区间内确定一个基准值（pivot），哪个元素都可以。咱选择无序区间最右边这个元素
+    //{ 5, 3, 1, 8, 2, 4, 9, 0, 7, 6 }
+    //2. 遍历整个无序区间，把每个元素都和基准值做比较，并且做一定的元素移动
+    //保证，基准值左边的元素都小于等于基准值，右边的元素都大于等于基准值
+    //这个过程被称为 partition
+    //{ 5, 3, 1, 0, 2, 4, 6, 9, 8, 7 }
+    //3. 对左右两个小区间按照相同的思路再次处理，直到无序区间的元素个数收敛成 0 个或者 1 个。
     public static void quickSort(long[] arr){
+        quickSortRange(arr,0,arr.length - 1);
+    }
+    private static void quickSortRange(long[] arr,int fromIdx ,int toIdx){
+        if(arr == null || arr.length == 0 || arr.length == 1){
+            return;
+        }
+        int size = toIdx - fromIdx + 1;
+        if(size <= 1){
+            return;
+        }
+        int index = partition(arr,fromIdx,toIdx);
+        quickSortRange(arr,fromIdx ,index - 1);
+        quickSortRange(arr,index + 1,toIdx);
+    }
 
+    /**
+     * 1. Horve 法
+     * 以数组最右边的那个为pivot（基准值），所以基准值在最右边的话，应该先动左边。否则 { ... 1 2 3 4 5 ... } 这种情况处理是错误的。
+     * @param arr
+     * @param fromIdx
+     * @param toIdx
+     * @return
+     */
+    private static int partition(long[] arr,int fromIdx,int toIdx){
+         //此时将右边的值为pivot
+        long pivot = arr[toIdx];
+        int leIdx = fromIdx;
+        int geIdx = toIdx;
+
+        while(geIdx > leIdx){
+            //因为基准值是最右边的，所以此时我应该先动左边
+            while(geIdx > leIdx && arr[leIdx] <= pivot){
+                leIdx++;
+            }
+
+            while(geIdx > leIdx && arr[geIdx] >= pivot){
+                geIdx--;
+            }
+
+            swap(arr,leIdx,geIdx);
+        }
+
+        swap(arr,leIdx,toIdx);
+        return leIdx;
     }
 
     public static void swap(long[] arr,int a ,int b){
@@ -228,7 +279,7 @@ public class MySort {
     public static void main(String[] args) {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
         double s = System.currentTimeMillis();
-        shellSort(arr);
+        quickSort(arr);
         double e = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         System.out.println((e - s) / 1000 + "s");
