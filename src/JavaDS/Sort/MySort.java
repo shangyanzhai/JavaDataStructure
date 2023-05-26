@@ -309,14 +309,20 @@ public class MySort {
         // 把 pivot 交换到最后边
         swap(arr, pivotIdx, toIdx);
 
-//        int index = partition(arr,fromIdx,toIdx);
+//        int index = partition3(arr,fromIdx,toIdx);
 //        quickSortRange(arr,fromIdx ,index - 1);
 //        quickSortRange(arr,index + 1,toIdx);
-        int[] indexes = partition(arr,fromIdx,toIdx);
-        int leIdx = indexes[0];//leIdx 为 < 基准值的边界
-        int geIdx = indexes[1];//geIdx 为 > 基准值的边界
-        quickSortRange(arr,fromIdx ,geIdx);
-        quickSortRange(arr,leIdx,toIdx);
+//        pivotIdx 是 partition 之后，pivot 所在的下标
+//        int pivotIdx = partition3(array, fromIdx, toIdx);
+        int[] borderIdx = partition(arr, fromIdx, toIdx);
+        int leIdx = borderIdx[0];
+        int geIdx = borderIdx[1];
+
+        // 整个 [fromIdx, toIdx] 的区间被 pivot 分成两部分
+        // 左边: [fromIdx, pivotIdx - 1]
+        // 右边: [pivotIdx + 1, toIdx]
+        quickSortRange(arr, fromIdx, leIdx);
+        quickSortRange(arr, geIdx, toIdx);
     }
 
     /**
@@ -460,6 +466,7 @@ public class MySort {
 
     public static void main(String[] args) {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
+//        long[] arr = {9,8,7,6,5,4,3,2,1};
         double s = System.currentTimeMillis();
         quickSort(arr);
         double e = System.currentTimeMillis();
