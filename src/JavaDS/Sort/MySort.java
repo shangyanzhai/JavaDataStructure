@@ -223,6 +223,36 @@ public class MySort {
     //这个过程被称为 partition
     //{ 5, 3, 1, 0, 2, 4, 6, 9, 8, 7 }
     //3. 对左右两个小区间按照相同的思路再次处理，直到无序区间的元素个数收敛成 0 个或者 1 个。
+    /**
+    快速排序的一些优化/变形：
+    1. 选择 pivot 的方式做优化
+        当直接选择最右侧作为 pivot 时，数组有序将变成快排的最坏情况
+        A. 同时选择两个 pivot1  pivot2
+         [ < pivot1 ] [ == pivot1 ] [ > pivot && < pivot2 ] [ == pivot2 ] [ > pivot2]
+        B. 随机选择一个元素做为 pivot，计算机中生产随机数也是一个高成本的事情
+        C. 当元素个数 > 3 个时，选择 3 个元素出来，最左边、最中间、最右边的 3 个元素，记为 e1, e2, e3。
+           比较 3 个元素的大小，把大小关系是中间的元素作为 pivot。—— 三数取中法。
+    2. 当元素个数较小时（16 个），直接用插排代替
+    3. 非递归（了解即可）
+     */
+    //对[fromIdx ,toIdx]区间进行插入排序
+    public static void insertSortRange1(long[] arr, int fromIdx, int toIdx) {
+
+        int size = toIdx - fromIdx + 1;
+        if(size == 0 || size == 1){
+            return;
+        }
+        for (int i = 1; i < size; i++) {
+            // [fromIdx, toIdx]
+            // [fromIdx, fromIdx + i)
+            long key = arr[fromIdx + i];
+            int j;
+            for (j = fromIdx + i - 1; j >= fromIdx && key < arr[j]; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[j + 1] = key;
+        }
+    }
     public static void quickSort(long[] arr){
         quickSortRange(arr,0,arr.length - 1);
     }
@@ -230,10 +260,45 @@ public class MySort {
         if(arr == null || arr.length == 0 || arr.length == 1){
             return;
         }
+        //优化 ： 1.当元素个数较少的时候，使用插入排序代替
         int size = toIdx - fromIdx + 1;
         if(size <= 1){
             return;
         }
+
+        if (size <= 16) {
+            insertSortRange1(arr, fromIdx, toIdx);
+            return;
+        }
+
+        // 增加一个 3 数取中法
+        long e1 = arr[fromIdx];
+        long e2 = arr[(fromIdx + toIdx) / 2];
+        long e3 = arr[toIdx];
+
+        int pivotIdx;
+        if (e1 < e2) {
+            if (e2 < e3) {
+                pivotIdx = (fromIdx + toIdx) / 2;
+            } else if (e1 < e3) {
+                pivotIdx = toIdx;
+            } else {
+                pivotIdx = fromIdx;
+            }
+        } else {
+            // e2 <= e1
+            if (e1 < e3) {
+                pivotIdx = fromIdx;
+            } else if (e3 < e2) { // e3 <= e1
+                pivotIdx = (fromIdx + toIdx) / 2;
+            } else {
+                pivotIdx = toIdx;
+            }
+        }
+
+        // 把 pivot 交换到最后边
+        swap(arr, pivotIdx, toIdx);
+
 //        int index = partition(arr,fromIdx,toIdx);
 //        quickSortRange(arr,fromIdx ,index - 1);
 //        quickSortRange(arr,index + 1,toIdx);

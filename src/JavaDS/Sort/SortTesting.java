@@ -93,7 +93,7 @@ public class SortTesting {
         int size = 1_0000;
         long[] arr1 = generateRandomArray(size);
         testSort(arr1);
-
+//
 //        long[] arr2 = generateSortedArray(size);
 //        testSort(arr2);
 //
