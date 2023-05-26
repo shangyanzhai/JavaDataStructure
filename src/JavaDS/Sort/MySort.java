@@ -153,37 +153,50 @@ public class MySort {
 
     //堆排序
     public static void heapSort(long[] arr) {
-        if(arr == null || arr.length == 0 || arr.length == 1){
-            return;
-        }
-        //首先先对数组进行建堆操作
-        //建立一个大堆
-        //按照大堆的规范对数组进行调整
-        int size = arr.length;
-        for(int i = (size - 1) / 2 ;i >= 0;i--){
-            shiftDown(arr,i,size);
-        }
-        //然后每一次都去取堆顶元素，将其放置到最后的有序区间内，并对堆顶元素进行向下调整
-        //[无序区间][有序区间]
-        //[0,i + 1)[i + 1,size)
-        for(int i = size - 1;i >= 0;i--){
-            swap(arr,0,i);
-            shiftDown(arr,0,i - 1);
+        // 1. 由于要排升序，把整个无序区间（一开始整个 array 都是无序区间）都建成大堆
+        createLargeHeap(arr, arr.length);   // O(n) ~ O(n * log(n))
+
+        // 开始堆选择过程      // O(n * log(n))
+        for (int i = 0; i < arr.length - 1; i++) {    // n 次
+            // 无序区间: [0, array.length - i)
+            // 由于无序区间已经是大堆了，所以最大的元素在 [0] 下标
+            // 把最大的元素和无序区间的最后一个元素 [array.length - i - 1] 交换
+            swap(arr, 0, arr.length - i - 1);   // O(1)
+            // 随着这次交换发生，无序区间少了一个元素，所以新的无序区间还剩 array.length - i - 1
+            // 现在新的无序区间暂时不是大堆了，堆顶元素位置破坏了
+            // 所以需要进行一次向下调整操作，调整的下标是 [0]
+            shiftDown(arr, arr.length - i - 1, 0);  // O(log(n))
         }
     }
-    public static void shiftDown(long[] arr,int index,int size){
-        int leftIdx = index * 2 + 1;
-        int rightIdx = index * 2 + 2;
-        if(leftIdx >= size){//代表该位置为叶子结点
-            return;
+
+    private static void createLargeHeap(long[] arr, int size) {
+        int lastIdx = size - 1;
+        int lastParentIdx = (lastIdx - 1) / 2;
+        for (int i = lastParentIdx; i >= 0; i--) {
+            shiftDown(arr, size, i);
         }
-        int maxIdx = leftIdx;
-        if(rightIdx < size && arr[rightIdx] > arr[leftIdx]){
-            maxIdx = rightIdx;
-        }
-        if(arr[maxIdx] > arr[index]){
-            swap(arr,maxIdx,index);
-            shiftDown(arr,maxIdx,size);
+    }
+
+    // O(log(n))
+    private static void shiftDown(long[] arr, int size, int index) {
+        while (true) {
+            int leftIdx = 2 * index + 1;
+            if (leftIdx >= size) {
+                return;
+            }
+
+            int maxIdx = leftIdx;
+            if (maxIdx + 1 < size && arr[maxIdx + 1] > arr[maxIdx]) {
+                maxIdx++;
+            }
+
+            if (arr[index] >= arr[maxIdx]) {
+                return;
+            }
+
+            swap(arr, maxIdx, index);
+
+            index = maxIdx;
         }
     }
 
@@ -262,9 +275,6 @@ public class MySort {
         }
         //优化 ： 1.当元素个数较少的时候，使用插入排序代替
         int size = toIdx - fromIdx + 1;
-        if(size <= 1){
-            return;
-        }
 
         if (size <= 16) {
             insertSortRange1(arr, fromIdx, toIdx);
