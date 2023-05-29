@@ -42,7 +42,8 @@ public class SortTesting {
 //        MySort.insertSort(array);
 //        MySort.heapSort(array);
 //        MySort.shellSort(array);
-        MySort.quickSort(array);
+//        MySort.quickSort(array);
+        MySort.quickSort非递归版本(array);
         double e = System.currentTimeMillis();
         System.out.println((e - s) / 1000 + "s");
 //        System.out.println(Arrays.toString(array));

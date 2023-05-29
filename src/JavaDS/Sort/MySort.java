@@ -1,6 +1,8 @@
 package JavaDS.Sort;
 
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class MySort {
     //冒泡排序
@@ -325,6 +327,70 @@ public class MySort {
         quickSortRange(arr, geIdx, toIdx);
     }
 
+    //快速排序的非递归写法
+
+    /**
+     * 非递归快速排序实际不一定必须使用栈，只是需要一个容器来记录区间的边界条件，
+     * 比如使用队列也是可行的
+     */
+    public static void quickSort非递归版本(long[] arr) {
+        if(arr == null || arr.length == 0 || arr.length == 1){
+            return;
+        }
+        //优化 ： 1.当元素个数较少的时候，使用插入排序代替
+        int size = arr.length;
+
+        if (size <= 16) {
+            insertSortRange1(arr, 0, size - 1);
+            return;
+        }
+
+        // 增加一个 3 数取中法
+        long e1 = arr[0];
+        long e2 = arr[(0 + size - 1) / 2];
+        long e3 = arr[size - 1];
+
+        int pivotIdx;
+        if (e1 < e2) {
+            if (e2 < e3) {
+                pivotIdx = (0 + size - 1) / 2;
+            } else if (e1 < e3) {
+                pivotIdx = size - 1;
+            } else {
+                pivotIdx = 0;
+            }
+        } else {
+            // e2 <= e1
+            if (e1 < e3) {
+                pivotIdx = 0;
+            } else if (e3 < e2) { // e3 <= e1
+                pivotIdx = (0 + size - 1) / 2;
+            } else {
+                pivotIdx = size - 1;
+            }
+        }
+
+        // 把 pivot 交换到最后边
+        swap(arr, pivotIdx, size - 1);
+
+        Deque<Integer> stack = new LinkedList<>();
+        stack.push(0);
+        stack.push(size - 1);
+        while(!stack.isEmpty()){
+            int geIdx = stack.pop();
+            int leIdx = stack.pop();
+            if(leIdx >= geIdx){
+                continue;
+            }
+            int[] indexArr = partition(arr,leIdx,geIdx);
+            stack.push(leIdx);
+            stack.push(indexArr[0]);
+            stack.push(indexArr[1]);
+            stack.push(geIdx);
+        }
+
+    }
+
     /**
      * 1. Horve 法
      * 以数组最右边的那个为pivot（基准值），所以基准值在最右边的话，应该先动左边。否则 { ... 1 2 3 4 5 ... } 这种情况处理是错误的。
@@ -458,6 +524,15 @@ public class MySort {
 
         return new int[] { leIdx - 1, geIdx + 1 };
     }
+
+    //归并排序
+    public static void mergeSort(long[] arr){
+
+    }
+
+    private static void merge(){
+
+    }
     public static void swap(long[] arr,int a ,int b){
         long temp = arr[a];
         arr[a] = arr[b];
@@ -468,7 +543,7 @@ public class MySort {
         long[] arr = {2,4,7,2,5,73,2,6,8,2,5,7};
 //        long[] arr = {9,8,7,6,5,4,3,2,1};
         double s = System.currentTimeMillis();
-        quickSort(arr);
+        quickSort非递归版本(arr);
         double e = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         System.out.println((e - s) / 1000 + "s");
